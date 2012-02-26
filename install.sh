@@ -19,9 +19,6 @@ function safe_install {
 
 set -e
 
-mkdir -p ~/.dlp/.dotfiles
-cp *.sh ~/.dlp/.dotfiles/
-
 if [ $# -eq 0 ]; then
   safe_install .bashrc
   safe_install .zshrc

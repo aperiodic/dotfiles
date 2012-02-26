@@ -1,13 +1,9 @@
-source ~/.dlp/platform.zsh
-
-detect_platform '~/.bashrc'
-
-
 ### PATHS ######################################################################
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
 
-if [[ $PLATFORM == 'mac' ]]; then 
+PLATFORM=`uname`
+if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
   export PATH=$PATH:/Developer/usr/bin
 fi
@@ -15,12 +11,12 @@ fi
 # my poor-man's vpn
 export PATH=$PATH:~/code/opensource/sshuttle
 
-if [[ $PLATFORM == 'mac' ]]; then 
+if [[ $PLATFORM == 'Darwin' ]]; then
   # clean all clipboard history files (for when I have to copy/paste a password from 1Password)
   export PATH=$PATH:/Users/dlp/code/personal/scripts/cleanclipboard
 fi
 
-if [[ $PLATFORM == 'mac' ]]; then
+if [[ $PLATFORM == 'Darwin' ]]; then
   # arduino gcc toolchain binaries
   export PATH=$PATH:/usr/local/CrossPack-avr/bin
 fi
