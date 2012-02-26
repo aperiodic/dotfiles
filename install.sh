@@ -1,0 +1,36 @@
+#!/bin/bash
+
+function safe_install {
+  if [ -f ~/$1 ] || [ -L ~/$1 ] || [ -d ~/$1 ]; then
+    if [ -f ~/$1.bkp ] || [ -L ~/$1.bkp ] || [ -d ~/$1.bkp ]; then
+     echo "~/$1 and ~/$1.bkp both exist, doing nothing" 1>&2
+     echo "You can restore from the bkp files by running restore.sh" 1>&2
+     return
+   else
+     echo "~/$1 already exists, moving to ~/$1.bkp" 1>&2
+     mv ~/$1 ~/$1.bkp
+   fi
+ fi
+ ln -s $(pwd)/$1 ~/$1
+ if [ $? -eq 0 ]; then
+   echo "Installed $1"
+ fi
+}
+
+set -e
+
+mkdir -p ~/.dlp/.dotfiles
+cp *.sh ~/.dlp/.dotfiles/
+
+if [ $# -eq 0 ]; then
+  safe_install .bashrc
+  safe_install .zshrc
+  safe_install .tmux.conf
+
+  safe_install .vim
+  safe_install .vimrc
+else
+  for f in $@; do
+    safe_install $f
+  done
+fi
