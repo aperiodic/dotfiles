@@ -25,6 +25,8 @@ au BufRead,BufNewFile *.xml.template set filetype=xml
 
 " seriously man, i don't need spaces highlighted in red while i'm typing
 let coffee_no_trailing_space_error = 1 
+" instead i'll just remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
