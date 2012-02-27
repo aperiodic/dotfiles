@@ -24,7 +24,7 @@ syntax enable
 au BufRead,BufNewFile *.xml.template set filetype=xml
 
 " seriously man, i don't need spaces highlighted in red while i'm typing
-let coffee_no_trailing_space_error = 1 
+let coffee_no_trailing_space_error = 1
 " instead i'll just remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -47,3 +47,6 @@ nmap E i <CR> <C-[>
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
+
+" instead of yy
+map Y y$
