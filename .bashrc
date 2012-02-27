@@ -1,6 +1,6 @@
 ### PATHS ######################################################################
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
 PLATFORM=`uname`
 if [[ $PLATFORM == 'Darwin' ]]; then
@@ -12,7 +12,8 @@ fi
 export PATH=$PATH:~/code/oss/sshuttle
 
 if [[ $PLATFORM == 'Darwin' ]]; then
-  # clean all clipboard history files (for when I have to copy/paste a password from 1Password)
+  # clean all clipboard history files (for when I have to copy/paste a password
+  # from 1Password)
   export PATH=$PATH:/Users/dlp/code/personal/scripts/cleanclipboard
 fi
 
