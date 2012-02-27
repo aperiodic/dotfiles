@@ -5,8 +5,8 @@ function restore {
     echo "No ~/$1.bkp file to revert from, skipping ~/$1"
   else
     mv ~/$1.bkp ~/$1
+    echo "Reverted $1"
   fi
-  echo "Reverted $1"
 }
 
 echo "All files installed by install.sh will be restored from their backups, if"
