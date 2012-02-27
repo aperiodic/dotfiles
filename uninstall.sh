@@ -23,6 +23,7 @@ set -e
 if [ $# -eq 0 ]; then
   restore .bashrc
   restore .zshrc
+  restore .inputrc
   restore .tmux.conf
 
   restore .vim

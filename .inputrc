@@ -1,0 +1,13 @@
+set editing-mode vi
+set keymap vi
+
+"\C-p": history-search-backward
+"\eOA": history-search-backward
+"\e[A": history-search-backward
+
+"\C-n": history-search-forward
+"\eOB": history-search-forward
+"\e[B": history-search-forward
+
+"\C-t": vi-editing-mode
+"\e":   vi-editing-mode

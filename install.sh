@@ -22,6 +22,7 @@ set -e
 if [ $# -eq 0 ]; then
   safe_install .bashrc
   safe_install .zshrc
+  safe_install .inputrc
   safe_install .tmux.conf
 
   safe_install .vim
