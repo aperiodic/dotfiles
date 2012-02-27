@@ -1246,4 +1246,4 @@ endfunction
 
 au BufNewFile,BufRead *.lisp call PareditInitBuffer()
 au BufNewFile,BufRead *.clj  call PareditInitBuffer()
-
+au BufNewFile,BufRead *.cljs call PareditInitBuffer()
