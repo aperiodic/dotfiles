@@ -59,7 +59,11 @@ alias grb='git rebase'
 alias gpl='git pull --rebase'
 alias gcl='git clone'
 
-alias ssh-agent="exec ssh-agent /bin/bash"
+if [[ $PLATFORM == 'Darwin' ]]; then
+  alias ssh-agent="exec ssh-agent /bin/zsh"
+elif [[ $PLATFORM == 'Linux' ]]; then
+  alias ssh-agent="exec ssh-agent /usr/bin/zsh"
+fi
 alias keyon="ssh-add -t 86400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
