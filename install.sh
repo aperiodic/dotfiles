@@ -19,6 +19,9 @@ function safe_install {
 
 set -e
 
+git submodule init
+git submodule update
+
 if [ $# -eq 0 ]; then
   safe_install .bashrc
   safe_install .zshrc
