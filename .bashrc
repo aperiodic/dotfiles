@@ -27,8 +27,12 @@ fi
 
 # colors!
 if [[ $PLATFORM == 'Linux' ]]; then
-  # os x has BSD ls, not GNU ls, so it doesn't support this option
   alias ls='ls --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+elif [[ $PLATFORM == 'Darwin' ]]; then
+  # if only os x had GNU ls
+  export CLICOLOR=1;
+  export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
 fi
 alias grep='grep --color=auto'
 
@@ -87,7 +91,5 @@ fi
 
 [ -z "$SSH_CLIENT" ] && . $HOME/.ssh-agent
 
-export CLICOLOR=1;
-export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
 export PS1="[\u@\h:\W]$ "
 set -o vi

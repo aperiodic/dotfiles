@@ -29,8 +29,12 @@ fi
 
 # colors!
 if [[ $PLATFORM == 'Linux' ]]; then
-  # os x has BSD ls, not GNU ls, so it doesn't support this option
   alias ls='ls --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+elif [[ $PLATFORM == 'Darwin' ]]; then
+  # if only os x had GNU ls
+  export CLICOLOR=1;
+  export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
 fi
 alias grep='grep --color=auto'
 
@@ -90,8 +94,7 @@ fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
-export CLICOLOR=1;
-export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
-export PROMPT='[%n@%m:%~%F{blue}?:%?%f] %# '
+export PROMPT='[%n@%m:%~%F{blue}?:%?%f]%# '
+
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
