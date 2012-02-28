@@ -13,18 +13,17 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-call pathogen#runtime_append_all_bundles()
+" load pathogen from the bundle folder and initialize
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
 
 filetype plugin on
 filetype indent on
-
-syntax enable
+syntax on
 
 " force .xml.template files to be treated as .xml files
 au BufRead,BufNewFile *.xml.template set filetype=xml
 
-" seriously man, i don't need spaces highlighted in red while i'm typing
-let coffee_no_trailing_space_error = 1
 " instead i'll just remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -37,8 +36,6 @@ set backspace=2		" more powerful backspacing
 au BufWrite /private/tmp/crontab.* set nowritebackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup
-
-let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/reference/"
 
 let mapleader = ","
 :nnoremap <F7> :setl noai nocin nosi inde=<CR>
