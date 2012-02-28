@@ -25,6 +25,13 @@ fi
 
 ### ALIASES ####################################################################
 
+# colors!
+if [[ $PLATFORM == 'Linux' ]]; then
+  # os x has BSD ls, not GNU ls, so it doesn't support this option
+  alias ls='ls --color=auto'
+fi
+alias grep='grep --color=auto'
+
 alias la="ls -a"
 alias ll="ls -alh"
 

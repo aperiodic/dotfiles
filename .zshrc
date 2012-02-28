@@ -1,3 +1,5 @@
+
+
 ### PATHS ######################################################################
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:~/bin
@@ -25,8 +27,15 @@ fi
 
 ### ALIASES ####################################################################
 
-alias la="ls -a"
-alias ll="ls -alh"
+# colors!
+if [[ $PLATFORM == 'Linux' ]]; then
+  # os x has BSD ls, not GNU ls, so it doesn't support this option
+  alias ls='ls --color=auto'
+fi
+alias grep='grep --color=auto'
+
+alias la='ls -a'
+alias ll='ls -alh'
 
 # these save me a ton of time
 alias ga='git add'
@@ -54,7 +63,7 @@ alias keylist='ssh-add -l'
 alias pageouts="top -l 1 | grep pageouts | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
 
 # the ip in there is the address of sax, my linux vm
-alias prgmr_tunnel="while true; do sshuttle --dns -vvr dlp@focus.aperiodic.org 0/0 -x 192.168.23.131; sleep 1; done" 
+alias prgmr_tunnel="while true; do sshuttle --dns -vvr dlp@focus.aperiodic.org 0/0 -x 192.168.23.131; sleep 1; done"
 
 
 ### FUNCTIONS ##################################################################
