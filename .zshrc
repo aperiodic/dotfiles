@@ -24,6 +24,12 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   export PATH=$PATH:/usr/local/CrossPack-avr/bin
 fi
 
+if [[ $PLATFORM == 'Darwin' ]]; then
+  export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+elif [[ $PLATFORM == 'LINUX' ]]; then
+  export JAVA_HOME='/usr/lib/jvm/java-6-sun'
+fi
+
 
 ### ALIASES ####################################################################
 
@@ -68,10 +74,16 @@ alias keyon="ssh-add -t 86400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
 
-alias pageouts="top -l 1 | grep pageouts | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
+alias pageouts="top -l 1 \
+                 | grep pageouts \
+                 | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
 
-# the ip in there is the address of sax, my linux vm
-alias prgmr_tunnel="while true; do sshuttle --dns -vvr dlp@focus.aperiodic.org 0/0 -x 192.168.23.131; sleep 1; done"
+# the address in there is where sax (my linux vm) lives.
+alias prgmr_tunnel="while true; \
+                      do sshuttle --dns -vvr dlp@focus.aperiodic.org 0/0 \
+                                  -x 192.168.23.131; \
+                      sleep 1; \
+                    done"
 
 
 ### FUNCTIONS ##################################################################
@@ -89,7 +101,6 @@ baratheons=(robert stannis renly)
 ### EC2 KEYS ###################################################################
 
 if [[ `hostname` = 'fiona' ]]; then
-  export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
   export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
   export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
   export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
