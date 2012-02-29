@@ -26,7 +26,7 @@ fi
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
-elif [[ $PLATFORM == 'LINUX' ]]; then
+elif [[ $PLATFORM == 'Linux' ]]; then
   export JAVA_HOME='/usr/lib/jvm/java-6-sun'
 fi
 

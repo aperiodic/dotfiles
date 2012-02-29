@@ -22,6 +22,12 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   export PATH=$PATH:/usr/local/CrossPack-avr/bin
 fi
 
+if [[ $PLATFORM == 'Darwin' ]]; then
+  export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+elif [[ $PLATFORM == 'Linux' ]]; then
+  export JAVA_HOME='/usr/lib/jvm/java-6-sun'
+fi
+
 
 ### ALIASES ####################################################################
 
