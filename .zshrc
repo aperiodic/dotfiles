@@ -1,10 +1,15 @@
-
+PLATFORM=`uname`
 
 ### PATHS ######################################################################
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+if [[ $HOST == 'fiona' ]]; then
+  export PATH=/usr/local/upgraded/bin:$PATH
+  export PATH=/usr/local/Cellar/sqlite/3.7.10/bin:$PATH
+fi
 
-PLATFORM=`uname`
+export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/sbin:~/bin
+
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
   export PATH=$PATH:/Developer/usr/bin
@@ -100,7 +105,7 @@ baratheons=(robert stannis renly)
 
 ### EC2 KEYS ###################################################################
 
-if [[ `hostname` = 'fiona' ]]; then
+if [[ $HOST = 'fiona' ]]; then
   export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
   export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
   export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
@@ -109,7 +114,14 @@ fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
-export PROMPT='[%n@%m:%~%F{blue}?:%?%f]%# '
+export PROMPT_L='[%n@%m:%~%F{blue}?:%?%f]'
+export PROMPT="$PROMPT_L%# "
+zle-keymap-select () {
+  case $KEYMAP in
+    vicmd) export PROMPT="$PROMPT_L%# ";;
+    viins) export PROMPT="$PROMPT_L%F{blue}%#%f ";;
+  esac
+}
 
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
