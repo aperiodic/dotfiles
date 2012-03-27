@@ -47,3 +47,7 @@ ca w!! w !sudo tee >/dev/null "%"
 
 " instead of yy
 map Y y$
+
+let g:swank_host = 'localhost'
+let g:swank_port = '4005'
+let g:slimv_repl_split = 3
