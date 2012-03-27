@@ -143,6 +143,9 @@ g:CommandTSelectNextMap	command-t.txt	/*g:CommandTSelectNextMap*
 g:CommandTSelectPrevMap	command-t.txt	/*g:CommandTSelectPrevMap*
 g:CommandTToggleFocusMap	command-t.txt	/*g:CommandTToggleFocusMap*
 g:loaded_rails	rails.txt	/*g:loaded_rails*
+g:paredit_matchlines	paredit.txt	/*g:paredit_matchlines*
+g:paredit_mode	paredit.txt	/*g:paredit_mode*
+g:paredit_shortmaps	paredit.txt	/*g:paredit_shortmaps*
 g:rails_abbreviations	rails.txt	/*g:rails_abbreviations*
 g:rails_ctags_arguments	rails.txt	/*g:rails_ctags_arguments*
 g:rails_default_file	rails.txt	/*g:rails_default_file*
@@ -194,6 +197,10 @@ mw	clojure.txt	/*mw*
 o_[%	matchit.txt	/*o_[%*
 o_]%	matchit.txt	/*o_]%*
 o_g%	matchit.txt	/*o_g%*
+paredit	paredit.txt	/*paredit*
+paredit-mode	paredit.txt	/*paredit-mode*
+paredit-options	paredit.txt	/*paredit-options*
+paredit.txt	paredit.txt	/*paredit.txt*
 rF	clojure.txt	/*rF*
 rails	rails.txt	/*rails*
 rails-'cfu'	rails.txt	/*rails-'cfu'*
@@ -335,6 +342,7 @@ rails-vim-integration	rails.txt	/*rails-vim-integration*
 rails.txt	rails.txt	/*rails.txt*
 rf	clojure.txt	/*rf*
 si	clojure.txt	/*si*
+slimv-paredit	paredit.txt	/*slimv-paredit*
 sr	clojure.txt	/*sr*
 sw	clojure.txt	/*sw*
 v_[%	matchit.txt	/*v_[%*
