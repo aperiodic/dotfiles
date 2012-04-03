@@ -100,7 +100,8 @@ alias prgmr_tunnel="while true; \
 ### SERVER GROUPS ##############################################################
 
 lannisters=(tywin cersei kevan lancel jaime genna)
-baratheons=(robert stannis renly)
+baratheons=(robert stannis renly shireen steffon)
+targaryen=(daenerys viserys rhaegar)
 
 
 ### EC2 KEYS ###################################################################
