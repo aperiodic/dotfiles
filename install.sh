@@ -30,6 +30,8 @@ if [ $# -eq 0 ]; then
 
   safe_install .vim
   safe_install .vimrc
+
+  safe_install .lein
 else
   for f in $@; do
     safe_install $f
