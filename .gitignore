@@ -2,3 +2,4 @@
 *.swo
 *.DS_Store
 /.lein/self-installs
+/.lein/plugins
