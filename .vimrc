@@ -48,6 +48,10 @@ ca w!! w !sudo tee >/dev/null "%"
 " instead of yy
 map Y y$
 
+" swank config (settings may not be necessary, i don't care)
 let g:swank_host = 'localhost'
 let g:swank_port = '4005'
 let g:slimv_repl_split = 3
+
+" open clam shell buffers in the lower half of the current pane
+let g:clam_winpos = 'botright'
