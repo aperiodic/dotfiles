@@ -39,8 +39,6 @@ au BufWrite /private/etc/pw.* set nowritebackup
 
 let mapleader = ","
 :nnoremap <F7> :setl noai nocin nosi inde=<CR>
-nmap S :w <C-m> :e # <C-m>
-nmap E i <CR> <C-[>
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
