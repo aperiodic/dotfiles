@@ -24,7 +24,10 @@ syntax on
 " force .xml.template files to be treated as .xml files
 au BufRead,BufNewFile *.xml.template set filetype=xml
 
-" instead i'll just remove trailing whitespace on save
+" turn on arduino syntax highlighting for *.ino files
+autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+
+" remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Normally we use vim-extensions. If you want true vi-compatibility
