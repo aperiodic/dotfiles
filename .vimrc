@@ -24,7 +24,7 @@ syntax on
 " force .xml.template files to be treated as .xml files
 au BufRead,BufNewFile *.xml.template set filetype=xml
 
-" turn on arduino syntax highlighting for *.ino files
+" enable arduino syntax highlighting for *.ino files
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 
 " remove trailing whitespace on save
