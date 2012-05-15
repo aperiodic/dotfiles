@@ -99,7 +99,7 @@ alias prgmr_tunnel="while true; \
 
 ### SERVER GROUPS ##############################################################
 
-lannisters=(tywin cersei kevan lancel jaime genna)
+lannisters=(tywin cersei kevan lancel jaime genna tyrion damion)
 starks=(catelyn robb)
 baratheons=(robert stannis renly shireen steffon)
 targaryens=(daenerys viserys rhaegar)
