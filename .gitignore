@@ -4,3 +4,5 @@
 *.DS_Store
 /.lein/self-installs
 /.lein/plugins
+/.lein/bin
+/.vim/.netrwhist
