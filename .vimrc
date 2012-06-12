@@ -42,8 +42,12 @@ ca w!! w !sudo tee >/dev/null "%"
 " instead of yy
 map Y y$
 
-set wildignore+=*/tmp/*,*.swp,*.swo,*.jar,*.class,.DS_Store
+" i don't know what exactly wildignore does, but ctrlp sets it, and i don't
+" care about these files anyways, so seems innocuous enough (famous last words)
+set wildignore+=*.swp,*.swo,*.jar,*.class,.DS_Store
 let g:ctrlp_custom_ignore = '\.git$'
+" this refreshes the list of files in ctrlp (it's poorly named)
+nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 
 " swank config (settings may not be necessary, i don't care)
 let g:swank_host = 'localhost'
