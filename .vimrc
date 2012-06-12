@@ -42,7 +42,7 @@ ca w!! w !sudo tee >/dev/null "%"
 " instead of yy
 map Y y$
 
-set wildignore+=*/tmp/*,*.swp,*.swo,*.jar,.DS_Store
+set wildignore+=*/tmp/*,*.swp,*.swo,*.jar,*.class,.DS_Store
 let g:ctrlp_custom_ignore = '\.git$'
 
 " swank config (settings may not be necessary, i don't care)
