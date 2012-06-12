@@ -7,12 +7,6 @@ set ai
 set et
 set ruler
 
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
-
 " load pathogen from the bundle folder and initialize
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -41,13 +35,15 @@ au BufWrite /private/tmp/crontab.* set nowritebackup
 au BufWrite /private/etc/pw.* set nowritebackup
 
 let mapleader = ","
-:nnoremap <F7> :setl noai nocin nosi inde=<CR>
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
 " instead of yy
 map Y y$
+
+set wildignore+=*/tmp/*,*.swp,*.swo,*.jar,.DS_Store
+let g:ctrlp_custom_ignore = '\.git$'
 
 " swank config (settings may not be necessary, i don't care)
 let g:swank_host = 'localhost'
