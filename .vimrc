@@ -7,6 +7,9 @@ set ai
 set et
 set ruler
 
+" tab completion like everything else does it (longest common prefix)
+set wildmode=longest,full
+
 " load pathogen from the bundle folder and initialize
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
