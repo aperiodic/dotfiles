@@ -64,6 +64,11 @@ map Y y$
 set pastetoggle=<F2>
 
 
+" clam config
+" ===========
+" open clam shell buffers in the lower half of the current pane
+let g:clam_winpos = 'botright'
+
 " ctrlp config
 " ============
 " i don't know what exactly wildignore does, but ctrlp sets it, and i don't
@@ -73,17 +78,16 @@ let g:ctrlp_custom_ignore = '\.git$'
 " this refreshes the list of files in ctrlp (it's poorly named)
 nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 
+" gundo config
+" ============
+nnoremap <F5> :GundoToggle<CR>
+
 " swank config
 " ============
 " (may not be necessary, i don't care)
 let g:swank_host = 'localhost'
 let g:swank_port = '4005'
 let g:slimv_repl_split = 3
-
-" clam config
-" ===========
-" open clam shell buffers in the lower half of the current pane
-let g:clam_winpos = 'botright'
 
 
 " Random File Stuff
