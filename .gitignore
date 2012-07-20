@@ -1,6 +1,6 @@
 /.aws_credentials
-*.swp
-*.swo
+*.sw*
+*~
 *.DS_Store
 /.lein/self-installs
 /.lein/plugins
