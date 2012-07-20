@@ -16,12 +16,12 @@ if [[ $PLATFORM == 'Darwin' ]]; then
 fi
 
 # my poor-man's vpn
-export PATH=$PATH:~/code/oss/sshuttle
+export PATH=$PATH:~/src/oss/sshuttle
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   # clean all clipboard history files (for when I have to copy/paste a password
   # from 1Password)
-  export PATH=$PATH:/Users/dlp/code/personal/scripts/cleanclipboard
+  export PATH=$PATH:/Users/dlp/src/personal/scripts/cleanclipboard
 fi
 
 if [[ $PLATFORM == 'Darwin' ]]; then
