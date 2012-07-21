@@ -49,12 +49,21 @@ vnoremap <tab> %
 
 set wrap
 set textwidth=80
+set linebreak
+let &showbreak = '> '
 set formatoptions=qrn1
 
 nnoremap j gj
 nnoremap k gk
 
 au FocusLost * :wa
+
+" move lines up and down
+nnoremap - ddp
+nnoremap _ ddkP
+
+" uppercase current word
+inoremap <c-u> <esc>viwUea
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
