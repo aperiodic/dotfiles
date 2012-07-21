@@ -28,6 +28,7 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2 " always
 set relativenumber
+set numberwidth=2
 set undofile
 
 syntax on
