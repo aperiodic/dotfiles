@@ -3,6 +3,7 @@ filetype off
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
+syntax on
 
 " most of these are taken from Steve Losh's 'Coming Home to Vim' blog post:
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
@@ -31,9 +32,15 @@ set relativenumber
 set numberwidth=2
 set undofile
 
-syntax on
-
 let mapleader = ","
+let maplocalleader = ";"
+
+" move lines up and down
+nnoremap <leader>- ddp
+nnoremap <leader>_ ddkP
+
+" uppercase current word
+inoremap <leader><c-u> <esc>viwUea
 
 nnoremap / /\v
 vnoremap / /\v
@@ -58,17 +65,10 @@ nnoremap k gk
 
 au FocusLost * :wa
 
-" move lines up and down
-nnoremap - ddp
-nnoremap _ ddkP
-
-" uppercase current word
-inoremap <c-u> <esc>viwUea
-
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
-map Y y$
+nnoremap Y y$
 " instead of yy
 
 set pastetoggle=<F2>
