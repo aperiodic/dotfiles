@@ -66,6 +66,9 @@ nnoremap <leader><space> :noh<cr>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap H 0
+nnoremap L $
+
 " vimrc editing & sourcing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -73,6 +76,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " move lines up and down
 nnoremap _ ddkP
 nnoremap - ddp
+
+" clear line
+nnoremap <leader>d ddO<esc>
 
 " uppercase current word
 inoremap <leader><c-u> <esc>viwUea
