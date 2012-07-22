@@ -52,12 +52,13 @@ set -e
 
 if [ $ARG_COUNT -eq 0 ]; then
   revert_or_rm .bashrc
-  revert_or_rm .zshrc
   revert_or_rm .inputrc
+  revert_or_rm .gitignore
+  revert_or_rm .lein
   revert_or_rm .tmux.conf
-
-  revert_or_rm .vim
   revert_or_rm .vimrc
+  revert_or_rm .vim
+  revert_or_rm .zshrc
 else
   for f in $@; do
     revert_or_rm $f

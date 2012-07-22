@@ -24,14 +24,13 @@ git submodule update
 
 if [ $# -eq 0 ]; then
   safe_install .bashrc
-  safe_install .zshrc
+  safe_install .gitignore
   safe_install .inputrc
+  safe_install .lein
   safe_install .tmux.conf
-
   safe_install .vim
   safe_install .vimrc
-
-  safe_install .lein
+  safe_install .zshrc
 else
   for f in $@; do
     safe_install $f
