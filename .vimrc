@@ -5,8 +5,12 @@ call pathogen#infect()
 filetype plugin indent on
 syntax on
 
+
+" Settings
+" ========
 " most of these are taken from Steve Losh's 'Coming Home to Vim' blog post:
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
 set nocompatible
 set modelines=0
 
@@ -32,16 +36,15 @@ set relativenumber
 set numberwidth=2
 set undofile
 
-let mapleader = ","
-let maplocalleader = ";"
+set wrap
+set textwidth=80
+set linebreak
+let &showbreak = '> '
+set formatoptions=qrn1
 
-" move lines up and down
-nnoremap <leader>- ddp
-nnoremap <leader>_ ddkP
+set iskeyword=@,48-57,_,-,192-255
 
-" uppercase current word
-inoremap <leader><c-u> <esc>viwUea
-
+" make searching more sensible
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -51,17 +54,35 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
-set wrap
-set textwidth=80
-set linebreak
-let &showbreak = '> '
-set formatoptions=qrn1
+
+" Mappings
+" ========
+
+let mapleader = ","
+let maplocalleader = ";"
 
 nnoremap j gj
 nnoremap k gk
+
+" vimrc editing & sourcing
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" move lines up and down
+nnoremap <leader>- ddp
+nnoremap <leader>_ ddkP
+
+" uppercase current word
+inoremap <leader><c-u> <esc>viwUea
+
+
+" Abbrevs
+" =======
+" they're sweeping the naish
+
+iabbrev @@ dlp@aperiodic.org
+iabbrev dlpwww http://aperiodic.org
 
 au FocusLost * :wa
 
