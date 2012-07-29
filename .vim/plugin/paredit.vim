@@ -224,7 +224,7 @@ function! PareditOpfunc( func, type, visualmode )
         let putreg = getreg( '"' )
         if a:func == 'd'
             " Register "0 is corrupted by the above 'y' command
-            call setreg( '0', save_0 ) 
+            call setreg( '0', save_0 )
         endif
 
         " Find and keep unbalanced matched characters in the region
@@ -251,9 +251,9 @@ function! PareditOpfunc( func, type, visualmode )
     let &virtualedit = ve_save
     if a:func == 'd' && regname == '"'
         " Do not currupt the '"' register and hence the "0 register
-        call setreg( '1', putreg ) 
+        call setreg( '1', putreg )
     else
-        call setreg( regname, putreg ) 
+        call setreg( regname, putreg )
     endif
 endfunction
 
@@ -320,7 +320,7 @@ function! PareditPut( cmd )
     endwhile
 
     " Store balanced text in put register and call the appropriate put command
-    call setreg( '"', putreg ) 
+    call setreg( '"', putreg )
     if v:count > 1
         silent exe "normal! " . v:count . a:cmd
     else
@@ -486,7 +486,7 @@ function! PareditFindOpening( open, close, select )
     if a:select
         call searchpair( open, '', close, 'W', s:skip_sc )
         let save_ve = &ve
-        set ve=all 
+        set ve=all
         normal! lvh
         let &ve = save_ve
         call searchpair( open, '', close, 'bW', s:skip_sc )
@@ -516,7 +516,7 @@ endfunction
 function! PareditFindDefunBck()
     let l = line( '.' )
     let matchb = max( [l-g:paredit_matchlines, 1] )
-    let oldpos = getpos( '.' ) 
+    let oldpos = getpos( '.' )
     let newpos = searchpairpos( '(', '', ')', 'brW', s:skip_sc, matchb )
     if newpos[0] == 0
         " Already standing on a defun, find the end of the previous one
@@ -542,7 +542,7 @@ endfunction
 function! PareditFindDefunFwd()
     let l = line( '.' )
     let matchf = min( [l+g:paredit_matchlines, line('$')] )
-    let oldpos = getpos( '.' ) 
+    let oldpos = getpos( '.' )
     call searchpair( '(', '', ')', 'brW', s:skip_sc, matchf )
     normal! %
     let newpos = searchpos( '(', 'W' )
@@ -1004,11 +1004,11 @@ function! s:MoveChar( l0, c0, l1, c1 )
         if a:c1 > a:c0
             let line = strpart( line, 0, a:c0-1 ) . strpart( line, a:c0, a:c1-a:c0-1 ) . c . strpart( line, a:c1-1 )
             call setline( a:l0, line )
-            call setpos( '.', [0, a:l1, a:c1-1, 0] ) 
+            call setpos( '.', [0, a:l1, a:c1-1, 0] )
         else
             let line = strpart( line, 0, a:c1-1 ) . c . strpart( line, a:c1-1, a:c0-a:c1 ) . strpart( line, a:c0 )
             call setline( a:l0, line )
-            call setpos( '.', [0, a:l1, a:c1, 0] ) 
+            call setpos( '.', [0, a:l1, a:c1, 0] )
         endif
     else
         " Move character to another line
@@ -1022,7 +1022,7 @@ function! s:MoveChar( l0, c0, l1, c1 )
         else
             let line1 = c . line1
             call setline( a:l1, line1 )
-            call setpos( '.', [0, a:l1, 1, 0] ) 
+            call setpos( '.', [0, a:l1, 1, 0] )
         endif
     endif
 endfunction
@@ -1040,7 +1040,7 @@ function! s:FindParenNearby()
         endif
     endif
 
-    " Skip macro prefix character    
+    " Skip macro prefix character
     let c0 =  col( '.' )
     if line[c0-1] =~ s:any_macro_prefix && line[c0] =~ b:any_opening_char
         normal! l
@@ -1304,7 +1304,7 @@ function! s:WrapSelection( open, close )
         let [l1, c1] = [ltmp, ctmp]
     endif
     let save_ve = &ve
-    set ve=all 
+    set ve=all
     call setpos( '.', [0, l0, c0, 0] )
     execute "normal! i" . a:open
     call setpos( '.', [0, l1, c1 + (l0 == l1), 0] )
@@ -1363,9 +1363,10 @@ endfunction
 "  Autocommands
 " =====================================================================
 
-au BufNewFile,BufRead *.lisp call PareditInitBuffer()
-au BufNewFile,BufRead *.cl   call PareditInitBuffer()
-au BufNewFile,BufRead *.clj  call PareditInitBuffer()
-au BufNewFile,BufRead *.scm  call PareditInitBuffer()
-au BufNewFile,BufRead *.rkt  call PareditInitBuffer()
-
+"au BufNewFile,BufRead *.lisp call PareditInitBuffer()
+"au BufNewFile,BufRead *.cl   call PareditInitBuffer()
+"au BufNewFile,BufRead *.clj  call PareditInitBuffer()
+"au BufNewFile,BufRead *.cljs call PareditInitBuffer()
+"au BufNewFile,BufRead *.scm  call PareditInitBuffer()
+"au BufNewFile,BufRead *.rkt  call PareditInitBuffer()
+au BufNewFile,BufRead * call PareditInitBuffer()
