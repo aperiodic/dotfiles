@@ -73,6 +73,17 @@ nnoremap L $
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" easy buffer listing & movement
+nnoremap <leader>l :ls<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+
+" vertical split
+nnoremap <leader>v :vsp<cr>
+
+" :x for buffers
+cnoreabbrev bx up<bar>bd
+
 " move lines up and down
 nnoremap _ ddkP
 nnoremap - ddp
