@@ -91,6 +91,9 @@ nnoremap - ddp
 " clear line
 nnoremap <leader>d ddO<esc>
 
+" replace newlines with spaces until next blank line
+nnoremap <leader>f v/\v^$<cr>gk$h:s/\n/ /<cr>jO<esc>k:noh<cr>
+
 " uppercase current word
 inoremap <leader><c-u> <esc>viwUea
 
@@ -131,12 +134,16 @@ nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 " ============
 nnoremap <F5> :GundoToggle<CR>
 
+" slimv & paredit config
+let g:slimv_leader = '\'
+let g:slimv_repl_split = 3
+let g:paredit_leader = ';'
+
 " swank config
 " ============
 " (may not be necessary, i don't care)
 let g:swank_host = 'localhost'
 let g:swank_port = '4005'
-let g:slimv_repl_split = 3
 
 
 " Random File Stuff
@@ -155,3 +162,5 @@ autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 au BufWrite /private/tmp/crontab.* set nowritebackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup
+
+noh
