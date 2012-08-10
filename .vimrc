@@ -135,9 +135,9 @@ nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 nnoremap <F5> :GundoToggle<CR>
 
 " slimv & paredit config
-let g:slimv_leader = '\'
+let g:slimv_leader = ';'
 let g:slimv_repl_split = 3
-let g:paredit_leader = ';'
+let g:paredit_leader = ','
 
 " swank config
 " ============
