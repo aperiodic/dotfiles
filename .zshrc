@@ -102,8 +102,9 @@ alias prgmr_tunnel="while true; \
 
 lannisters=(tywin cersei kevan lancel jaime genna tyrion damion)
 starks=(catelyn robb)
-baratheons=(robert stannis renly shireen steffon)
-targaryens=(daenerys viserys rhaegar)
+baratheons=(robert stannis renly steffon)
+targaryens=(daenerys viserys rhaegar aerys)
+martells=(oberyn elia doran)
 
 
 ### AWS CREDENTIALS ############################################################
