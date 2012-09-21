@@ -14,6 +14,8 @@ syntax on
 let mapleader = ","
 let maplocalleader = ";"
 
+set timeoutlen=500
+
 set nocompatible
 set modelines=0
 
@@ -78,8 +80,10 @@ nnoremap <leader>l :ls<cr>
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
 
-" vertical split
+" splits
 nnoremap <leader>v :vsp<cr>
+nnoremap <leader>s :sp<cr>
+nnoremap <leader>x <c-w>x
 
 " :x for buffers
 cnoreabbrev bx up<bar>bd
