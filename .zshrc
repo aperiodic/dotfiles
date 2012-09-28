@@ -8,7 +8,8 @@ if [[ $HOST == 'fiona' ]]; then
 fi
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:/usr/local/sbin:~/bin
+export PATH=/usr/local/sbin:~/bin:$PATH
+export PATH=/usr/local/pgsql/bin:$PATH
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
