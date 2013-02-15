@@ -6,3 +6,4 @@
 /.lein/plugins
 /.lein/bin
 /.vim/.netrwhist
+*.psd
