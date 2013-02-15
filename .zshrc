@@ -10,6 +10,7 @@ fi
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:~/bin:$PATH
 export PATH=/usr/local/pgsql/bin:$PATH
+export PATH=$PATH:/usr/local/lib/larceny
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
@@ -99,18 +100,10 @@ alias prgmr_tunnel="while true; \
 #pgrep() { ps aux | grep "$1" | awk '{print substr($*,1,100)'}
 
 
-### SERVER GROUPS ##############################################################
-
-lannisters=(tywin cersei kevan lancel jaime genna tyrion damion gerion)
-starks=(catelyn robb arya)
-baratheons=(robert stannis renly steffon)
-targaryens=(daenerys viserys rhaegar aerys)
-martells=(oberyn elia doran)
-
-
 ### AWS CREDENTIALS ############################################################
 
 if [[ $HOST = 'fiona' ]]; then
+  source ~/.aws_credentials
   export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
   export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
   export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
@@ -136,4 +129,3 @@ zle-keymap-select () {
 
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
-
