@@ -130,3 +130,4 @@ zle-keymap-select () {
 
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
+export EDITOR=vim
