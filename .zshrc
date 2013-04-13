@@ -7,10 +7,11 @@ if [[ $HOST == 'fiona' ]]; then
   export PATH=/usr/local/Cellar/sqlite/3.7.10/bin:$PATH
 fi
 
-export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/lib/larceny
 export PATH=/usr/local/sbin:~/bin:$PATH
 export PATH=/usr/local/pgsql/bin:$PATH
-export PATH=$PATH:/usr/local/lib/larceny
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/bin:$PATH
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
