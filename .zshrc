@@ -84,6 +84,8 @@ alias keyon="ssh-add -t 86400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
 
+alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
+
 alias pageouts="top -l 1 \
                  | grep pageouts \
                  | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
