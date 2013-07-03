@@ -7,7 +7,6 @@ if [[ $HOST == 'fiona' ]]; then
   export PATH=/usr/local/Cellar/sqlite/3.7.10/bin:$PATH
 fi
 
-export PATH=$PATH:/usr/local/lib/larceny
 export PATH=/usr/local/sbin:~/bin:$PATH
 export PATH=/usr/local/pgsql/bin:$PATH
 export PATH=/usr/bin:$PATH
@@ -16,26 +15,20 @@ export PATH=/usr/local/bin:$PATH
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
   export PATH=$PATH:/Developer/usr/bin
-fi
-
-# my poor-man's vpn
-export PATH=$PATH:~/src/oss/sshuttle
-
-if [[ $PLATFORM == 'Darwin' ]]; then
+  # my poor-man's vpn
+  export PATH=$PATH:~/src/oss/sshuttle
   # clean all clipboard history files (for when I have to copy/paste a password
   # from 1Password)
   export PATH=$PATH:/Users/dlp/src/personal/scripts/cleanclipboard
-fi
-
-if [[ $PLATFORM == 'Darwin' ]]; then
-  # arduino gcc toolchain binaries
-  export PATH=$PATH:/usr/local/CrossPack-avr/bin
+  # truecrypt CLI
+  alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
 fi
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home"
 elif [[ $PLATFORM == 'Linux' ]]; then
-  export JAVA_HOME='/usr/lib/jvm/java-6-sun'
+  jdk=$(ls /usr/lib/jvm/ | grep 'java-6' | head -n 1)
+  export JAVA_HOME="/usr/lib/jvm/$jdk"
 fi
 
 
@@ -83,8 +76,6 @@ fi
 alias keyon="ssh-add -t 86400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
-
-alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
 
 alias pageouts="top -l 1 \
                  | grep pageouts \
