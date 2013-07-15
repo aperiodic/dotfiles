@@ -15,4 +15,8 @@ if [ -s ~/.xmodmap ]; then
   xmodmap ~/.xmodmap
 fi
 
+if [ -s ~/.xresources ]; then
+  xrdb -merge ~/.xresources
+fi
+
 exec xmonad

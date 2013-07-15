@@ -29,7 +29,9 @@ if [ $# -eq 0 ]; then
   safe_install .tmux.conf
   safe_install .vim
   safe_install .vimrc
+  safe_install .xinitrc
   safe_install .xmodmap
+  safe_install .xresources
   safe_install .zshrc
 else
   for f in $@; do
