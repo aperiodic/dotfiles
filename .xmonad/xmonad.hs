@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.LayoutHints
 
 import Data.Monoid
 import System.Exit
@@ -43,8 +44,8 @@ myWorkspaces    = ["0","1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#999999"
-myFocusedBorderColor = "#33ff33"
+myNormalBorderColor  = "#333333"
+myFocusedBorderColor = "#ff9500"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -175,13 +176,13 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     tiled   = layoutHintsWithPlacement (0.5, 0.5) (Tall nmaster delta ratio)
 
      -- The default number of windows in the master pane
      nmaster = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
+     ratio   = 3/5
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
@@ -216,7 +217,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = fullscreenEventHook
+myEventHook = hintsEventHook <+> fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -267,7 +268,7 @@ defaults = defaultConfig {
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
-        handleEventHook    = fullscreenEventHook,
+        handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
