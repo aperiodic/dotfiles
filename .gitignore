@@ -7,3 +7,7 @@
 /.lein/bin
 /.vim/.netrwhist
 *.psd
+/.xmonad/*.hi
+/.xmonad/*.o
+/.xmonad/*.errors
+/.xmonad/xmonad-*
