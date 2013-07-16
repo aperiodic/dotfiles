@@ -84,7 +84,7 @@
 !!
 
 URxvt.scrollBar: false
-URxvt.font: xft:InconsolataDZ:pixelsize=13
+URxvt.font: xft:InconsolataDZ:pixelsize=14:antialias=true:hinting=true:autohint=true:rgba=rgb:hintstyle=hintslight:lcdfilter=lcddefault
 
 !!
 !! X Font Settings (mainly used by URxvt, which ignores fontconfig)
@@ -95,5 +95,5 @@ Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
 Xft.hinting: 1
-Xft. antialias: 1
-Xft.rgba rgb
+Xft.antialias: 1
+Xft.rgba: rgb
