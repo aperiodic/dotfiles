@@ -1,0 +1,32 @@
+Config { font = "xft:InconsolataDZ:pixelsize=13:autohint=true:hinting=true"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , persistent = False
+       , hideOnStart = False
+       , commands = [ Run StdinReader
+                    , Run MultiCpu ["-t", "<fc=#839496>CPU:</fc> <total><fc=#839496>% (</fc><total0><fc=#839496>%</fc> <total1><fc=#839496>%</fc> <total2><fc=#839496>%</fc> <total3><fc=#839496>%)</fc>"] 5
+                    , Run CoreTemp [ "-t", "<core0><fc=#839496>/</fc><core1><fc=#839496>°C</fc>"
+                                   , "-H", "75", "-h", "#dc322f"]
+                          40
+                    , Run Memory ["-t","<fc=#839496>Mem:</fc> <usedratio><fc=#839496>%</fc>"] 20
+                    , Run Swap ["-t", "<total>"] 20
+                    , Run BatteryP ["BAT0"]
+                                   [ "-t", "<acstatus>"
+                                   , "-L", "10", "-l", "#dc322f"
+                                   , "--"
+                                   , "-o", "<fc=#839496>Batt:</fc> <timeleft> <fc=#839496>(</fc><left><fc=#839496>%)</fc>"
+                                   , "-O", "<fc=#839496>Batt:</fc> <fc=#b58900>Charging</fc> <fc=#839496>(</fc><left><fc=#839496>%)</fc>"
+                                   , "-i", "<fc=#839496>Batt:</fc> <fc=#859900>Charged</fc>"
+                                   ]
+                          50
+                    , Run Wireless "wlp3s0" ["-t", "<essid> <qualitybar>"] 10
+                    , Run Date "%a %b %_d %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %multicpu% %coretemp% %memory% <fc=#839496>Swap:</fc> %swap% <fc=#839496>|</fc> %battery% <fc=#839496>| %wlp3s0wi% | %date%</fc>"
+       }
