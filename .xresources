@@ -1,4 +1,5 @@
-!! drop in Solarized colorscheme for Xresources/Xdefaults
+!! Solarized Color Scheme
+
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
 !!--------- ------- ---- -------  ----------- ---------- ----------- -----------
@@ -6,6 +7,7 @@
 !!base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
 !!base01    #586e75 10/7 brgreen  240 #585858 45 -07 -07  88 110 117 194  25  46
 !!base00    #657b83 11/7 bryellow 241 #626262 50 -07 -07 101 123 131 195  23  51
+!!base05    #A6B9BF 11/7 bryellow 241 #626262 50 -07 -07 130 159 168 195  13  75
 !!base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
 !!base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
 !!base2     #eee8d5  7/7 white    254 #e4e4e4 92 -00  10 238 232 213  44  11  93
@@ -23,6 +25,7 @@
 #define S_base02        #073642
 #define S_base01        #586e75
 #define S_base00        #657b83
+#define S_base05        #93B4BF
 #define S_base0         #839496
 #define S_base1         #93a1a1
 #define S_base2         #eee8d5
@@ -37,12 +40,12 @@
 #define S_green         #859900
 
 *background:            S_base03
-*foreground:            S_base00
-*fading:                40
-*fadeColor:             S_base03
-*cursorColor:           S_base1
+*foreground:            S_base05
+*fading:                22
+*fadeColor:             S_base01
+*cursorColor:           S_orange
 *pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+*pointerColorForeground:S_orange
 
 !! black dark/light
 *color0:                S_base02
@@ -58,7 +61,7 @@
 
 !! yellow dark/light
 *color3:                S_yellow
-*color11:               S_base00
+*color11:               S_base05
 
 !! blue dark/light
 *color4:                S_blue
@@ -75,3 +78,22 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
+
+!!
+!! URxvt Settings
+!!
+
+URxvt.scrollBar: false
+URxvt.font: xft:InconsolataDZ:pixelsize=13
+
+!!
+!! X Font Settings (mainly used by URxvt, which ignores fontconfig)
+!!
+
+Xft.dpi: 144
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft. antialias: 1
+Xft.rgba rgb
