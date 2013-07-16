@@ -34,17 +34,6 @@ fi
 
 ### ALIASES ####################################################################
 
-# colors!
-if [[ $PLATFORM == 'Linux' ]]; then
-  alias ls='ls --color=auto'
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-elif [[ $PLATFORM == 'Darwin' ]]; then
-  # if only os x had GNU ls
-  export CLICOLOR=1;
-  export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
-fi
-alias grep='grep --color=auto'
-
 alias la='ls -a'
 alias ll='ls -alh'
 
@@ -125,3 +114,19 @@ zle-keymap-select () {
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
 export EDITOR=vim
+
+if [[ $PLATFORM == 'Linux' ]]; then
+  export LC_CTYPE=en_US.UTF-8
+fi
+
+# colors!
+if [[ $PLATFORM == 'Linux' ]]; then
+  alias ls='ls --color=auto'
+  test -e ~/.dircolors && source ~/.dircolors || eval "$(dircolors -b)"
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+elif [[ $PLATFORM == 'Darwin' ]]; then
+  # if only os x had GNU ls
+  export CLICOLOR=1;
+  export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
+fi
+alias grep='grep --color=auto'
