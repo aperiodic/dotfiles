@@ -114,9 +114,11 @@ zle-keymap-select () {
   esac
 }
 
+export EDITOR=vim
+export VISUAL=vim
 set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
-export EDITOR=vim
+bindkey -s "^t" "\e"
 
 if [[ $PLATFORM == 'Linux' ]]; then
   export LC_CTYPE=en_US.UTF-8

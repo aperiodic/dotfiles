@@ -11,6 +11,9 @@ syntax on
 " most of these are taken from Steve Losh's 'Coming Home to Vim' blog post:
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
+" make C-t esc
+inoremap <C-t> <Esc>
+
 let mapleader = ","
 let maplocalleader = ";"
 
