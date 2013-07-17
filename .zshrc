@@ -84,21 +84,24 @@ alias prgmr_tunnel="while true; \
 #pgrep() { ps aux | grep "$1" | awk '{print substr($*,1,100)'}
 
 
-### AWS CREDENTIALS ############################################################
+### CREDENTIALS ################################################################
 
-if [[ $HOST = 'fiona' ]]; then
+if [[ $HOST == 'fiona' ]]; then
   source ~/.aws_credentials
   export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
   export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
   export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
 fi
 
-if [[ $HOST = 'sax' ]]; then
+if [[ $HOST == 'sax' ]]; then
   export EC2_HOME='/home/dlp/.ec2/ec2-api-tools-1.5.2.5'
   export PATH=$PATH:$EC2_HOME/bin
   source ~/.aws_credentials
 fi
 
+if [[ $HOST == 'kasei' ]]; then
+  eval `keychain --eval --agents ssh id_rsa`
+fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
