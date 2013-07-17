@@ -38,6 +38,7 @@
 #define S_blue          #268bd2
 #define S_cyan          #2aa198
 #define S_green         #859900
+#define S_brgreen       #90e700
 
 *background:            S_base03
 *foreground:            S_base05
@@ -57,7 +58,7 @@
 
 !! green dark/light
 *color2:                S_green
-*color10:               S_base01
+*color10:               S_brgreen
 
 !! yellow dark/light
 *color3:                S_yellow
