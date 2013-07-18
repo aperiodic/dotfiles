@@ -31,6 +31,11 @@ elif [[ $PLATFORM == 'Linux' ]]; then
   export JAVA_HOME="/usr/lib/jvm/$jdk"
 fi
 
+if [ -e ~/.rbenv/bin ]; then
+  export PATH=~/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+fi
+
 
 ### ALIASES ####################################################################
 
