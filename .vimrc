@@ -13,6 +13,7 @@ syntax on
 
 " make C-t esc
 inoremap <C-t> <Esc>
+vnoremap <C-t> <Esc>
 
 let mapleader = ","
 let maplocalleader = ";"
