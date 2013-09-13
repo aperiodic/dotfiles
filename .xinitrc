@@ -19,4 +19,10 @@ if [ -s ~/.xresources ]; then
   xrdb -merge ~/.xresources
 fi
 
+# this synchronizes the clipboard and primary selections
+/usr/bin/autocutsel -fork &
+/usr/bin/autocutsel -selection PRIMARY -fork &
+
+/usr/bin/xscreensaver -no-splash &
+
 exec xmonad
