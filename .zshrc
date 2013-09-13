@@ -36,6 +36,16 @@ if [ -e ~/.rbenv/bin ]; then
   eval "$(rbenv init -)"
 fi
 
+# PSAS arm development tools
+if [ -d ~/opt/psas ]; then
+  export PATH=$PATH:~/opt/psas/openocd/bin
+  export PATH=$PATH:~/opt/psas/x-tools/stm32f407/arm-psas-eabi/bin
+fi
+
+# slashpackage-convention commands
+if [ -d /command ]; then
+  export PATH=$PATH:/command
+fi
 
 ### ALIASES ####################################################################
 
@@ -75,12 +85,7 @@ alias pageouts="top -l 1 \
                  | grep pageouts \
                  | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
 
-# the address in there is where sax (my linux vm) lives.
-alias prgmr_tunnel="while true; \
-                      do sshuttle --dns -vvr dlp@focus.aperiodic.org 0/0 \
-                                  -x 192.168.23.131; \
-                      sleep 1; \
-                    done"
+alias st_ocd="sudo openocd -f ~/src/psas/stm32/openocd/olimex_stm32_e407.cfg --search ~/opt/psas/openocd/share/openocd/scripts"
 
 
 ### FUNCTIONS ##################################################################
