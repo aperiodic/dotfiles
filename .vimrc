@@ -12,8 +12,11 @@ syntax on
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 " make C-t esc
+nnoremap <C-t> <Esc>
 inoremap <C-t> <Esc>
 vnoremap <C-t> <Esc>
+cnoremap <C-t> <Esc>
+onoremap <C-t> <Esc>
 
 let mapleader = ","
 let maplocalleader = ";"
