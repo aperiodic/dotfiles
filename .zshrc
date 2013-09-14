@@ -28,7 +28,9 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home"
 elif [[ $PLATFORM == 'Linux' ]]; then
   jdk=$(ls /usr/lib/jvm/ | grep 'java-7' | head -n 1)
-  export JAVA_HOME="/usr/lib/jvm/$jdk"
+  if [ ! -z "$jdk" ]; then
+    export JAVA_HOME="/usr/lib/jvm/$jdk"
+  fi
 fi
 
 if [ -e ~/.rbenv/bin ]; then
