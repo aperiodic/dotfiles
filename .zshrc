@@ -49,6 +49,16 @@ if [ -d /command ]; then
   export PATH=$PATH:/command
 fi
 
+# Amazon EC2 API/AMI tools
+if [ -d /usr/local/ec2-ami-tools-* ]; then
+  export EC2_AMITOOL_HOME="/usr/local/$(ls /usr/local | grep 'ec2-ami' | head -n 1)"
+  export PATH=$PATH:$EC2_AMITOOL_HOME/bin
+fi
+if [ -d /usr/local/ec2-api-tools-* ]; then
+  export EC2_HOME="/usr/local/$(ls /usr/local | grep 'ec2-api' | head -n 1)"
+  export PATH=$PATH:$EC2_HOME/bin
+fi
+
 ### ALIASES ####################################################################
 
 alias la='ls -a'
