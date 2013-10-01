@@ -59,6 +59,8 @@ set iskeyword=@,48-57,_,-,192-255
 set background=dark
 colorscheme solarized
 
+set tags=./tags;
+
 " make searching more sensible
 nnoremap / /\v
 vnoremap / /\v
