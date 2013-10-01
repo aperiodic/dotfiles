@@ -19,3 +19,9 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-misc"]
+	path = .vim/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc
+[submodule ".vim/bundle/easytags"]
+	path = .vim/bundle/easytags
+	url = https://github.com/xolox/vim-easytags
