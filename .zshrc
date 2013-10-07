@@ -127,6 +127,8 @@ fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
+export TERM='xterm-256color'
+
 export PROMPT_L='[%n@%m:%~%F{blue}?:%?%f]'
 export PROMPT="$PROMPT_L%# "
 zle-keymap-select () {
