@@ -26,7 +26,7 @@ fi
 
 if [[ $PLATFORM == 'Darwin' ]]; then
   export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home"
-elif [[ $PLATFORM == 'Linux' ]]; then
+elif [[ $PLATFORM == 'Linux' && -d /usr/lib/jvm ]]; then
   jdk=$(ls /usr/lib/jvm/ | grep 'java-7' | head -n 1)
   if [ ! -z "$jdk" ]; then
     export JAVA_HOME="/usr/lib/jvm/$jdk"
@@ -50,11 +50,11 @@ if [ -d /command ]; then
 fi
 
 # Amazon EC2 API/AMI tools
-if [ -d /usr/local/ec2-ami-tools-* ]; then
+if [ ! -z "$(find /usr/local/ -iregex 'ec2-ami-*')" ]; then
   export EC2_AMITOOL_HOME="/usr/local/$(ls /usr/local | grep 'ec2-ami' | head -n 1)"
   export PATH=$PATH:$EC2_AMITOOL_HOME/bin
 fi
-if [ -d /usr/local/ec2-api-tools-* ]; then
+if [ -z "$(find /usr/local/ -iregex 'ec2-api-*')" ]; then
   export EC2_HOME="/usr/local/$(ls /usr/local | grep 'ec2-api' | head -n 1)"
   export PATH=$PATH:$EC2_HOME/bin
 fi
