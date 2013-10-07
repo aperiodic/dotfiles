@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/VimClojure"]
-	path = .vim/bundle/VimClojure
-	url = https://github.com/vim-scripts/VimClojure.git
 [submodule ".vim/bundle/pathogen"]
 	path = .vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -19,3 +16,6 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-clojure-static"]
+        path = .vim/bundle/vim-clojure-static
+        url = git://github.com/guns/vim-clojure-static.git
