@@ -150,16 +150,13 @@ nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 " ============
 nnoremap <F5> :GundoToggle<CR>
 
-" slimv & paredit config
-let g:slimv_leader = ';'
-let g:slimv_repl_split = 3
+" paredit config
+" ==============
 let g:paredit_leader = ','
 
-" swank config
-" ============
-" (may not be necessary, i don't care)
-let g:swank_host = 'localhost'
-let g:swank_port = '4005'
+" vim-clojure-static config
+" ==========================
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->']
 
 
 " Random File Stuff
