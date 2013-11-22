@@ -84,13 +84,14 @@
 !!
 
 URxvt.scrollBar: false
-URxvt.font: xft:InconsolataDZ:pixelsize=14:antialias=true:hinting=true:autohint=true:rgba=rgb:hintstyle=hintslight:lcdfilter=lcddefault
+URxvt.font: xft:Inconsolata\\-dz:pixelsize=14:antialias=true:hinting=true:autohint=true:rgba=rgb:hintstyle=hintslight:lcdfilter=lcddefault
+URxvt.letterSpace: 0
 
 !!
 !! X Font Settings (mainly used by URxvt, which ignores fontconfig)
 !!
 
-Xft.dpi: 144
+Xft.dpi: 141
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.hintstyle: hintslight
