@@ -6,6 +6,7 @@ filetype plugin indent on
 syntax on
 
 
+
 " Settings
 " ========
 " most of these are taken from Steve Losh's 'Coming Home to Vim' blog post:
@@ -73,6 +74,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 
 
+
 " Mappings
 " ========
 
@@ -132,6 +134,10 @@ nnoremap Y y$
 set pastetoggle=<F2>
 
 
+
+" Plugin Configuration
+" ====================
+
 " clam config
 " ===========
 " open clam shell buffers in the lower half of the current pane
@@ -159,6 +165,7 @@ let g:paredit_leader = ','
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->']
 
 
+
 " Random File Stuff
 " ================
 
@@ -175,5 +182,8 @@ autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 au BufWrite /private/tmp/crontab.* set nowritebackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup
+
+" tabs and soft tabs are 4 spaces in c files
+autocmd FileType c :setlocal sw=4 ts=4 sts=4
 
 noh
