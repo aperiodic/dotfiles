@@ -162,7 +162,7 @@ let g:paredit_leader = ','
 
 " vim-clojure-static config
 " ==========================
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->']
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.']
 
 
 
