@@ -41,7 +41,7 @@ fi
 # PSAS arm development tools
 if [ -d ~/opt/psas ]; then
   export PATH=$PATH:~/opt/psas/openocd/bin
-  export PATH=$PATH:~/opt/psas/x-tools/stm32f407/arm-psas-eabi/bin
+  export PATH=$PATH:~/opt/psas/x-tools/stm32f407/gcc-arm-none-eabi-4_7-2013q3/bin
 fi
 
 # slashpackage-convention commands
