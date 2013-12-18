@@ -33,7 +33,7 @@ elif [[ $PLATFORM == 'Linux' && -d /usr/lib/jvm ]]; then
   fi
 fi
 
-if [ -e ~/.rbenv/bin ]; then
+if [ -e ~/.rbenv ]; then
   export PATH=~/.rbenv/bin:$PATH
   eval "$(rbenv init -)"
 fi
