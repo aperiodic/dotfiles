@@ -38,6 +38,17 @@ if [ -e ~/.rbenv/bin ]; then
   eval "$(rbenv init -)"
 fi
 
+# Puppet projects in RUBYLIB
+for project in puppet facter hiera puppetdb; do
+  project_path=~/src/puppetlabs/$project
+  if [ -e $project_path ]; then
+    export RUBYLIB=$project_path:$RUBYLIB
+    if [ -e $project_path/bin ]; then
+      export PATH=$PATH:$project_path/bin
+    fi
+  fi
+done
+
 # PSAS arm development tools
 if [ -d ~/opt/psas ]; then
   export PATH=$PATH:~/opt/psas/openocd/bin
