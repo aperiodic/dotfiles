@@ -39,7 +39,7 @@ if [ -e ~/.rbenv ]; then
 fi
 
 # Puppet projects in RUBYLIB
-for project in puppet facter hiera puppetdb; do
+for project in puppet facter hiera puppetdb beaker; do
   project_path=~/src/puppetlabs/$project
   if [ -e $project_path ]; then
     export RUBYLIB=$project_path:$RUBYLIB
