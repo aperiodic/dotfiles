@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-fireplace"]
         path = .vim/bundle/vim-fireplace
         url = git://github.com/tpope/vim-fireplace.git
+[submodule ".vim/bundle/vim-clojure-sql"]
+	path = .vim/bundle/vim-clojure-sql
+	url = https://github.com/krisajenkins/vim-clojure-sql.git
