@@ -75,6 +75,7 @@ fi
 alias la='ls -a'
 alias ll='ls -alh'
 
+# git aliases
 # these save me a ton of time
 alias ga='git add'
 alias gb='git branch'
@@ -95,14 +96,20 @@ alias grl='git remote'
 alias grm='git rm'
 alias gs='git status -s'
 
+# ssh-agent aliases
 if [[ $PLATFORM == 'Darwin' ]]; then
   alias ssh-agent="exec ssh-agent /bin/zsh"
 elif [[ $PLATFORM == 'Linux' ]]; then
   alias ssh-agent="exec ssh-agent /usr/bin/zsh"
 fi
-alias keyon="ssh-add -t 86400"
+alias keyon="ssh-add -t 14400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
+
+# xscreensaver lock alias
+if [[ $PLATFORM == 'Linux' ]]; then
+  alias xlock="xscreensaver-command -lock"
+fi
 
 alias pageouts="top -l 1 \
                  | grep pageouts \
