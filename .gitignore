@@ -11,3 +11,4 @@
 /.xmonad/*.o
 /.xmonad/*.errors
 /.xmonad/xmonad-*
+.scratch*
