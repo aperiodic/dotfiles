@@ -49,6 +49,7 @@ set laststatus=2 " always
 set relativenumber
 set numberwidth=2
 set undofile
+set mouse=a
 
 set wrap
 set textwidth=80
