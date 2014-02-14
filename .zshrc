@@ -126,19 +126,6 @@ alias st_ocd="sudo openocd -f ~/src/psas/stm32/openocd/olimex_stm32_e407.cfg --s
 
 ### CREDENTIALS ################################################################
 
-if [[ $HOST == 'fiona' ]]; then
-  source ~/.aws_credentials
-  export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
-  export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
-  export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.4.2.2/jars"
-fi
-
-if [[ $HOST == 'sax' ]]; then
-  export EC2_HOME='/home/dlp/.ec2/ec2-api-tools-1.5.2.5'
-  export PATH=$PATH:$EC2_HOME/bin
-  source ~/.aws_credentials
-fi
-
 if [[ $HOST == 'kasei' ]]; then
   eval `keychain --eval --agents ssh id_rsa`
 fi
@@ -164,6 +151,7 @@ bindkey -s "^t" "\e"
 
 if [[ $PLATFORM == 'Linux' ]]; then
   export LC_CTYPE=en_US.UTF-8
+  alias fixkeyboard="setxkbmap -model pc104 -layout us -variant dvp -option ctrl:nocaps"
 fi
 
 # colors!
