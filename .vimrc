@@ -167,6 +167,16 @@ let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^
 
 
 
+" Filetype-Specific Settings
+" ==========================
+
+" for markdown files, each line should be a sentence and each sentence a line,
+" so i don't want the lines to wrap ever.
+au FileType markdown set tw=99999
+
+au FileType gitcommit set tw=72
+
+
 " Random File Stuff
 " ================
 
