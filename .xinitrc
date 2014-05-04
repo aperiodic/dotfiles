@@ -18,6 +18,7 @@ if [ -s ~/.xresources ]; then
 fi
 
 /usr/bin/xscreensaver -no-splash &
+xbindkeys
 
 # start clipboard manager if found
 if [[ ! "$(which parcellite)" =~ "not found" ]]; then
