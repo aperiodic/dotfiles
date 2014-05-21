@@ -25,4 +25,9 @@ if [[ ! "$(which parcellite)" =~ "not found" ]]; then
   parcellite &
 fi
 
+# start syndaemon if found
+if [[ ! "$(which syndaemon)" =~ "not found" ]]; then
+  syndaemon -i 1.5 -k &
+fi
+
 exec xmonad
