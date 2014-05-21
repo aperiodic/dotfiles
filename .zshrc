@@ -122,6 +122,13 @@ alias st_ocd="sudo openocd -f ~/src/psas/stm32/openocd/olimex_stm32_e407.cfg --s
 # would like to know why this doesn't work
 #pgrep() { ps aux | grep "$1" | awk '{print substr($*,1,100)'}
 
+function dict () {
+  if [[ $1 == (d|m) ]]; then
+    curl dict://dict.org/$1:$2 | $PAGER
+  else
+    echo 'Unknown command. Use (d)efine or (m)atch.'
+      fi
+}
 
 ### CREDENTIALS ################################################################
 
