@@ -161,6 +161,7 @@ nnoremap <F5> :GundoToggle<CR>
 " paredit config
 " ==============
 let g:paredit_leader = ','
+let g:paredit_matchlines = 150
 
 " vim-clojure-static config
 " ==========================
