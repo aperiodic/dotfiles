@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-clojure-sql"]
 	path = .vim/bundle/vim-clojure-sql
 	url = https://github.com/krisajenkins/vim-clojure-sql.git
+[submodule ".vim/bundle/conceal"]
+	path = .vim/bundle/conceal
+	url = git@github.com:holguinj/vim-clojure-conceal.git
