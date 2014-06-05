@@ -133,6 +133,10 @@ if [[ $HOST == 'kasei' ]]; then
   eval `keychain --eval --agents ssh id_rsa`
 fi
 
+### ZSH OPTIONS ################################################################
+
+setopt hist_ignore_dups
+
 ### GENERAL CLI GOODNESS #######################################################
 
 export TERM='xterm-256color'
