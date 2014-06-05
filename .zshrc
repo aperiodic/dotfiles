@@ -43,9 +43,6 @@ for project in puppet facter hiera puppetdb beaker; do
   project_path=~/src/puppetlabs/$project
   if [ -e $project_path ]; then
     export RUBYLIB=$project_path:$RUBYLIB
-    if [ -e $project_path/bin ]; then
-      export PATH=$PATH:$project_path/bin
-    fi
   fi
 done
 
