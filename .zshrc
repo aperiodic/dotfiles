@@ -130,7 +130,7 @@ function dict () {
 ### CREDENTIALS ################################################################
 
 if [[ $HOST == 'kasei' ]]; then
-  eval `keychain --eval --agents ssh id_rsa`
+  eval `keychain --confirm --clear --timeout 10 --eval --agents ssh id_rsa`
 fi
 
 ### ZSH OPTIONS ################################################################
