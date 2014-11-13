@@ -32,6 +32,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set breakindent
 
 set encoding=utf-8
 set scrolloff=5
