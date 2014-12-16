@@ -16,7 +16,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xfce4-terminal"
+myTerminal      = "xfce4-terminal --hide-menubar"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse = True
