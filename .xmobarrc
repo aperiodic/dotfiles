@@ -8,8 +8,8 @@ Config { font = "xft:Inconsolata:pixelsize=14:autohint=true:hinting=true"
        , persistent = False
        , hideOnStart = False
        , commands = [ Run StdinReader
-                    , Run MultiCpu ["-t", "<fc=#839496>CPU:</fc> <total><fc=#839496>% (</fc><total0><fc=#839496>%</fc> <total1><fc=#839496>%</fc> <total2><fc=#839496>%</fc> <total3><fc=#839496>%)</fc>"] 5
-                    , Run CoreTemp [ "-t", "<core0><fc=#839496>/</fc><core1><fc=#839496>°C</fc>"
+                    , Run MultiCpu ["-t", "<fc=#839496>CPU:</fc> <total><fc=#839496>% (</fc><total0><fc=#839496>%</fc> <total1><fc=#839496>%</fc> <total2><fc=#839496>%</fc> <total3><fc=#839496>%</fc> <total4><fc=#839496>%</fc> <total5><fc=#839496>%</fc> <total6><fc=#839496>%</fc> <total7><fc=#839496>%)</fc>"] 5
+                    , Run CoreTemp [ "-t", "<core0><fc=#839496>/</fc><core1><fc=#839496>/</fc><core2><fc=#839496>/</fc><core3><fc=#839496>°C</fc>"
                                    , "-H", "75", "-h", "#dc322f"]
                           40
                     , Run Memory ["-t","<fc=#839496>Mem:</fc> <usedratio><fc=#839496>%</fc>"] 20
