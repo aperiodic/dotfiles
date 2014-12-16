@@ -2,8 +2,10 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.LayoutHints
 import XMonad.Util.Run
+import XMonad.Util.WorkspaceCompare
 
 import Data.Monoid
 import System.Exit
@@ -226,7 +228,7 @@ myEventHook = hintsEventHook <+> fullscreenEventHook
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- Xmobar
@@ -235,7 +237,12 @@ myBar = "xmobar"
 
 -- Configure the workspaces pretty printer
 myPP = xmobarPP { ppCurrent = xmobarColor "#fdf6e3" "" . wrap "[" "]"
-                , ppOrder   = \(ws:l:t) -> [ws]
+                , ppLayout  = (\x -> case x of
+                                          "Hinted Tall"        -> "|"
+                                          "Mirror Hinted Tall" -> "-"
+                                          "Full"               -> "#"
+                                          )
+                , ppSort    = getSortByXineramaPhysicalRule
                 }
 
 -- Key binding to toggle the gap for the bar
