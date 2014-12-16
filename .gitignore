@@ -12,3 +12,4 @@
 /.xmonad/*.errors
 /.xmonad/xmonad-*
 .scratch*
+/src/scratch.clj
