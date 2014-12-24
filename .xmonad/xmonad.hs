@@ -244,7 +244,6 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#fdf6e3" "" . wrap "[" "]"
                                           "Mirror Hinted Tall" -> "-"
                                           "Full"               -> "#"
                                           )
-                , ppSort    = getSortByXineramaPhysicalRule
                 }
 
 -- Key binding to toggle the gap for the bar
