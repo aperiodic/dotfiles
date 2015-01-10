@@ -17,14 +17,14 @@
 	path = .vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/bundle/vim-clojure-static"]
-        path = .vim/bundle/vim-clojure-static
-        url = git://github.com/guns/vim-clojure-static.git
+  path = .vim/bundle/vim-clojure-static
+  url = git://github.com/guns/vim-clojure-static.git
 [submodule ".vim/bundle/vim-fireplace"]
-        path = .vim/bundle/vim-fireplace
-        url = git://github.com/tpope/vim-fireplace.git
+  path = .vim/bundle/vim-fireplace
+  url = git://github.com/tpope/vim-fireplace.git
 [submodule ".vim/bundle/vim-clojure-sql"]
 	path = .vim/bundle/vim-clojure-sql
 	url = https://github.com/krisajenkins/vim-clojure-sql.git
 [submodule ".vim/bundle/conceal"]
 	path = .vim/bundle/conceal
-	url = git@github.com:holguinj/vim-clojure-conceal.git
+	url = https://github.com/holguinj/vim-clojure-conceal.git
