@@ -127,6 +127,10 @@ function dict () {
   fi
 }
 
+function xbl () {
+  echo "$1" | sudo tee /sys/class/backlight/intel_backlight/brightness
+}
+
 ### CREDENTIALS ################################################################
 
 if [[ $HOST == 'kasei' ]]; then
