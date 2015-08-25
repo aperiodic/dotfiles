@@ -192,6 +192,9 @@ au BufRead,BufNewFile *.xml.template set filetype=xml
 " enable arduino syntax highlighting for *.ino files
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 
+" enable clojure stuff for hoplon files
+autocmd! BufNewFile,BufRead *.hl setlocal ft=clojure
+
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
 " Don't write backup file if vim is being called by "chpass"
