@@ -30,4 +30,6 @@ if [[ ! "$(which syndaemon)" =~ "not found" ]]; then
   syndaemon -i 1.5 -k &
 fi
 
+xrdb -m ~/.xresources
+
 exec xmonad
