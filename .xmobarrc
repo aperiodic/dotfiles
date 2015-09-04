@@ -1,4 +1,4 @@
-Config { font = "xft:Inconsolata\\-dz:pixelsize=13:autohint=true:hinting=true"
+Config { font = "xft:Inconsolata:pixelsize=14:autohint=true:hinting=true"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
