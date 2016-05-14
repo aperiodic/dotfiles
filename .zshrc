@@ -137,6 +137,10 @@ fi
 
 setopt hist_ignore_dups
 
+### X11 ########################################################################
+
+xrdb -m ~/.xresources
+
 ### GENERAL CLI GOODNESS #######################################################
 
 export TERM='xterm-256color'
