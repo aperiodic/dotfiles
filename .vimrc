@@ -166,7 +166,7 @@ let g:paredit_matchlines = 150
 
 " vim-clojure-static config
 " ==========================
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^try', '^fn']
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^try', '^fn', '^dom', '^are', '^GET', '^POST', '^PUT', '^HEAD', '^DELETE']
 
 
 
@@ -178,7 +178,8 @@ let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^
 au FileType markdown set tw=99999
 
 au FileType gitcommit set tw=72
-
+au FileType cpp set tw=100 sw=4
+au FileType python set tw=80 sw=2
 
 " Random File Stuff
 " ================
