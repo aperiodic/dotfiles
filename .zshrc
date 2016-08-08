@@ -33,9 +33,10 @@ elif [[ $PLATFORM == 'Linux' && -d /usr/lib/jvm ]]; then
   fi
 fi
 
-if [ -e ~/.rbenv ]; then
-  export PATH=~/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
+# arch ruby gems path
+ruby_gems_bin="$HOME/.gem/ruby/2.3.0/bin"
+if [ -e "$ruby_gems_bin" ]; then
+  export PATH="$PATH:$ruby_gems_bin"
 fi
 
 # Puppet projects in RUBYLIB
