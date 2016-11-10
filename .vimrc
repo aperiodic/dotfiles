@@ -140,6 +140,11 @@ nnoremap Y y$
 
 set pastetoggle=<F2>
 
+" Macros
+" ======
+
+" load files from file with a filename on each line
+let @f='gf:b#j'
 
 
 " Plugin Configuration
