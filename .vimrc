@@ -20,6 +20,10 @@ vnoremap <C-t> <Esc>
 cnoremap <C-t> <Esc>
 onoremap <C-t> <Esc>
 
+" disable space
+nnoremap <space> <Esc>
+vnoremap <space> <Esc>
+
 let mapleader = ","
 let maplocalleader = ";"
 
