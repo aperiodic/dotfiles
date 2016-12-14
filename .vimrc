@@ -122,6 +122,9 @@ nnoremap <leader>f v/\v^$<cr>gk$h:s/\n/ /<cr>jO<esc>k:noh<cr>
 " uppercase current word
 inoremap <leader><c-u> <esc>viwUea
 
+" count matches of last search pattern
+nnoremap <leader>* :%s///gn<CR>
+
 
 " Abbrevs
 " =======
