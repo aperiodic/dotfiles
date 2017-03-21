@@ -67,6 +67,12 @@ if [ -z "$(find /usr/local/ -iregex 'ec2-api-*')" ]; then
   export PATH=$PATH:$EC2_HOME/bin
 fi
 
+# rbenv
+if [ -d ~/.rbenv ]; then
+  export PATH="~/.rbenv/shims:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 ### ALIASES ####################################################################
 
 alias la='ls -a'
