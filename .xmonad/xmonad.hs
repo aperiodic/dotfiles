@@ -1,7 +1,8 @@
 import XMonad
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageDocks (docks, ToggleStruts (ToggleStruts) )
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.LayoutHints
 import XMonad.Util.Run
@@ -246,9 +247,6 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#fdf6e3" "" . wrap "[" "]"
                                           )
                 }
 
--- Key binding to toggle the gap for the bar
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_s)
-
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
@@ -257,7 +255,10 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_s)
 main :: IO ()
 main = do
   h <- spawnPipe myBar
-  xmonad $ defaultConfig {
+  xmonad $
+    docks
+    desktopConfig
+    {
     -- simple stuff
       terminal           = myTerminal
     , focusFollowsMouse  = myFocusFollowsMouse
@@ -273,7 +274,7 @@ main = do
     , mouseBindings      = myMouseBindings
 
     -- hooks layouts
-    , layoutHook         = avoidStruts $ myLayout
+    , layoutHook         = desktopLayoutModifiers $ myLayout
     , manageHook         = myManageHook
     , handleEventHook    = myEventHook
     , logHook            = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h }
