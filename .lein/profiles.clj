@@ -1,4 +1,5 @@
-{:user {:plugins [[lein-difftest "2.0.0"]
+{:user {:plugins [[lein-ancient "0.6.10" :exclusions [org.apache.httpcomponents/httpclient]]
+                  [lein-difftest "2.0.0"]
                   [lein-midje "3.0.0"]
                   [lein-pprint "1.1.2"]]
         :dependencies [[clj-stacktrace "0.2.8"]]

@@ -1,0 +1,5 @@
+
+(do)
+(with-open [f (File. "foo")] )
+(with-open [f (java.util.File. "foo")] )
+(with-open [f (java.io.File. "foo")] )
