@@ -5,6 +5,8 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (docks, ToggleStruts (ToggleStruts) )
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.LayoutHints
+import qualified XMonad.Layout.LimitWindows as Limit
+import qualified XMonad.Layout.VarialColumn as VC
 import XMonad.Util.Run
 import XMonad.Util.WorkspaceCompare
 
@@ -97,20 +99,20 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-    -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    -- Shrink the column
+    , ((modm,               xK_h     ), withFocused $ \w -> sendMessage $ VC.Embiggen (-deltaw) 0 w)
 
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm,               xK_l     ), withFocused $ \w -> sendMessage $ VC.Embiggen deltaw 0 w)
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm              , xK_comma ), withFocused $ \w -> sendMessage $ VC.GrabColumn w)
 
     -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_period), withFocused $ \w -> sendMessage $ VC.ToNewColumn w)
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -143,6 +145,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+  where
+    deltaw = 0.2
 
 
 ------------------------------------------------------------------------
@@ -175,19 +179,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| twocol ||| Full
   where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = layoutHintsWithPlacement (0.5, 0.5) (Tall nmaster delta ratio)
-
-     -- The default number of windows in the master pane
-     nmaster = 1
-
-     -- Default proportion of screen occupied by master pane
-     ratio   = 3/5
-
-     -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+    tiled = VC.varial
+    twocol = Limit.limitWindows 2 $ VC.varial
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -244,6 +239,7 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#fdf6e3" "" . wrap "[" "]"
                                           "Hinted Tall"        -> "|"
                                           "Mirror Hinted Tall" -> "-"
                                           "Full"               -> "#"
+                                          _ -> x
                                           )
                 }
 
