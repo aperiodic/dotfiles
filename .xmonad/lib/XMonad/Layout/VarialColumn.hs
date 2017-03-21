@@ -91,9 +91,11 @@ minimumSize :: Rational
 minimumSize = 0.05
 
 -- resize the thing at the position to have the given size in a way
--- that preserves the total and doesn't make anything less than 0.1
-changeS :: Int -> Rational -> S.Seq Rational -> S.Seq Rational
-changeS n r' s
+-- that preserves the total and doesn't make anything less than 0.1.
+-- doesn't handle last column because this is only used for drag
+-- resizing, and last column doesn't have a drag handler.
+setS :: Int -> Rational -> S.Seq Rational -> S.Seq Rational
+setS n r' s
   | null s = s
   | length s == 1 = s
   | otherwise = let lim = minimumSize
@@ -101,6 +103,21 @@ changeS n r' s
                     a1 = S.index s (n+1)
                     r = min (a0 + a1 - lim) $ max r' lim in
                   norm $ S.update n r $ S.update (n+1) (a1 - (r - a0)) s
+
+-- resize the thing at the position by the given delta, in a way that
+-- preserves the total and doesn't make anything less than 0.1
+changeS :: Int -> Rational -> S.Seq Rational -> S.Seq Rational
+changeS n d' s
+  | null s = s
+  | length s == 1 = s
+  | otherwise = let lim = minimumSize
+                    lastCol = n + 1 == length s
+                    m = if not lastCol then n+1 else n-1
+                    a0 = S.index s n
+                    a1 = S.index s m
+                    d = min d' $ min ((a0 + d') - lim) $ max 0 ((a1 - d') - lim) in
+                  norm $ S.update n (a0 + d)
+                       $ S.update m (a1 - d) s
 
 -- insert a new column at n
 insertCol :: Int -> LS a -> LS a
@@ -294,21 +311,17 @@ instance LayoutClass LS Window where
                                                                        iterate (* gen) 1)
                                                                       cs)))}
     | (Just (Embiggen dr dc w)) <- fromMessage msg =
-        let change q s a = norm $ S.adjust (+ q) s $ fmap ((flip (-)) (q / (fromIntegral $ S.length a))) a
-        in
         findWindowAnd w $ \(col, row, _) ->
                             return $ Just $ state
-                               { cols = (Cols
-                                         (change dr col rs)
-                                         (S.adjust (change dc row) col cs)) }
+                               { cols = (Cols (changeS col dr rs) cs) }
 
 
     | (Just (SetColumn c r)) <- fromMessage msg =
-        let rs' = changeS c r rs in
+        let rs' = setS c r rs in
           return $ Just $ state { cols = (Cols rs' cs) }
 
     | (Just (SetRow c r ra)) <- fromMessage msg =
-        let cs' = S.adjust (changeS r ra) c cs in
+        let cs' = S.adjust (setS r ra) c cs in
             return $ Just $ state { cols = (Cols rs cs') }
 
     | (Just Hide) <- fromMessage msg =
