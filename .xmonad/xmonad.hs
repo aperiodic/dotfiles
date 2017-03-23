@@ -100,10 +100,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
     -- Shrink the column
-    , ((modm,               xK_h     ), withFocused $ \w -> sendMessage $ VC.Embiggen (-deltaw) 0 w)
+    , ((modm,               xK_h     ), withFocused $ \w -> sendMessage $ VC.Embiggen (-dw) 0 w)
 
     -- Expand the master area
-    , ((modm,               xK_l     ), withFocused $ \w -> sendMessage $ VC.Embiggen deltaw 0 w)
+    , ((modm,               xK_l     ), withFocused $ \w -> sendMessage $ VC.Embiggen dw 0 w)
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
@@ -146,7 +146,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
   where
-    deltaw = 0.2
+    dw = 0.02
 
 
 ------------------------------------------------------------------------
