@@ -107,12 +107,13 @@ setS n r' s
 -- resize the thing at the position by the given delta, in a way that
 -- preserves the total and doesn't make anything less than 0.1
 changeS :: Int -> Rational -> S.Seq Rational -> S.Seq Rational
-changeS n d' s
+changeS n' d' s
   | null s = s
   | length s == 1 = s
   | otherwise = let lim = minimumSize
-                    lastCol = n + 1 == length s
-                    m = if not lastCol then n+1 else n-1
+                    lastCol = n' + 1 == length s
+                    m = if not lastCol then n'+1 else n'
+                    n = if not lastCol then n' else n' - 1
                     a0 = S.index s n
                     a1 = S.index s m
                     d = min d' $ min ((a0 + d') - lim) $ max 0 ((a1 - d') - lim) in
