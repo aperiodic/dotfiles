@@ -52,7 +52,7 @@ type WDragger = (Window, Dragger)
 
 -- default layout that you may want to use
 varial = LS { cols = (Cols S.empty S.empty),
-              gap = 5,
+              gap = 4,
               balanceColumns = 1,
               insertColumns = 2,
               draggers = [],
