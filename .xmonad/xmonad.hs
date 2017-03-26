@@ -242,9 +242,9 @@ myBar = "xmobar"
 -- Configure the workspaces pretty printer
 myPP = xmobarPP { ppCurrent = xmobarColor "#fdf6e3" "" . wrap "[" "]"
                 , ppLayout  = (\x -> case x of
-                                          "Hinted Tall"        -> "|"
-                                          "Mirror Hinted Tall" -> "-"
-                                          "Full"               -> "#"
+                                          "Varial Columns"         -> "|+"
+                                          "First 2 Varial Columns" -> "||"
+                                          "Full"                   -> "[]"
                                           _ -> x
                                           )
                 }
