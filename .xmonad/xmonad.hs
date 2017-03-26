@@ -75,9 +75,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
-    -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
-
     -- Move focus to the next window
     , ((modm,               xK_Tab   ), windows W.focusDown)
 
@@ -99,20 +96,25 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-    -- Shrink the column
+    -- move right edge of column left or right (or left edge if last column)
     , ((modm,               xK_h     ), withFocused $ \w -> sendMessage $ VC.Embiggen (-dw) 0 w)
 
     -- Expand the master area
     , ((modm,               xK_l     ), withFocused $ \w -> sendMessage $ VC.Embiggen dw 0 w)
 
-    -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    -- move bottom edge of window up or down (or top edge if last window in column)
+    , ((modm,               xK_t     ), withFocused $ \w -> sendMessage $ VC.Embiggen 0 dw w)
+    , ((modm,               xK_n     ), withFocused $ \w -> sendMessage $ VC.Embiggen 0 (-dw) w)
 
-    -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), withFocused $ \w -> sendMessage $ VC.GrabColumn w)
+    -- move windows to prev/next positions (both within and to new columns)
+    , ((modm              , xK_comma), withFocused $ \w -> sendMessage $ VC.UpOrLeft w)
+    , ((modm              , xK_period), withFocused $ \w -> sendMessage $ VC.DownOrRight w)
 
-    -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), withFocused $ \w -> sendMessage $ VC.ToNewColumn w)
+    -- balance heights of windows in current column to be equal
+    , ((modm              , xK_b), withFocused $ \w -> sendMessage $ VC.EqualizeColumn 1 w)
+
+    -- Return window to tiling (previously M-t)
+    , ((modm,               xK_r     ), withFocused $ windows . W.sink)
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -165,8 +167,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
                                        >> windows W.shiftMaster))
 
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
+    -- move windows around to prev/next positions (both within and to new columns)
+    , ((modm, button4), \w -> sendMessage $ VC.Embiggen 0 (-dw) w)
+    , ((modm, button5), \w -> sendMessage $ VC.Embiggen 0 dw w)
     ]
+  where
+    dw = 0.005
 
 ------------------------------------------------------------------------
 -- Layouts:
