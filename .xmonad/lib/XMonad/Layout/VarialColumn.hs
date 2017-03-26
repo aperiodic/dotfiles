@@ -267,7 +267,7 @@ data Msg =
 instance Message Msg
 
 instance LayoutClass LS Window where
-  description (LS {cols = (Cols rs cs)}) = (show $ S.length cs) ++ "col"
+  description _ = "Varial Columns"
 
   doLayout state screen stack = do
     let (ws, statem) = layout state screen stack
