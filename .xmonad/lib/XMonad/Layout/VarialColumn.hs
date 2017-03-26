@@ -314,7 +314,9 @@ instance LayoutClass LS Window where
     | (Just (Embiggen dr dc w)) <- fromMessage msg =
         findWindowAnd w $ \(col, row, _) ->
                             return $ Just $ state
-                               { cols = (Cols (changeS col dr rs) cs) }
+                               { cols = (Cols
+                                          (changeS col dr rs)
+                                          (S.adjust (changeS row dc) col cs)) }
 
 
     | (Just (SetColumn c r)) <- fromMessage msg =
