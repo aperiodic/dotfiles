@@ -103,6 +103,9 @@ instance LayoutModifier LimitWindows a where
                     FirstN -> firstN
                     Slice -> slice
 
+     modifierDescription (LimitWindows FirstN n) = "First " ++ show n
+     modifierDescription (LimitWindows Slice n) = "Slice " ++ show n
+
 firstN ::  Int -> W.Stack a -> W.Stack a
 firstN n st = upfocus $ fromJust $ W.differentiate $ take (max 1 n) $ W.integrate st
     where upfocus = foldr (.) id $ replicate (length (W.up st)) W.focusDown'
