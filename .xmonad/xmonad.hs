@@ -114,8 +114,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
 
     -- move windows around to prev/next positions (both within and to new columns)
-    , ((modm, button4), \w -> sendMessage $ VC.Embiggen 0 (-dw) w)
-    , ((modm, button5), \w -> sendMessage $ VC.Embiggen 0 dw w)
+    , ((modm, button4), \w -> sendMessage $ VC.Embiggen (-dw) 0 w)
+    , ((modm, button5), \w -> sendMessage $ VC.Embiggen dw 0 w)
     ]
   where
     dw = 0.005
