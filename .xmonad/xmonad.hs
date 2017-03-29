@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks (docks, ToggleStruts (ToggleStruts) )
+import XMonad.Hooks.ManageDocks (docks, docksEventHook, ToggleStruts (ToggleStruts) )
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.LayoutHints
 import qualified XMonad.Layout.LimitWindows as Limit
@@ -184,7 +184,7 @@ main = do
     -- behavorial costumization
     , layoutHook         = desktopLayoutModifiers $ tiled ||| twocol ||| Full
     , manageHook         = bypassSomeApps
-    , handleEventHook    = hintsEventHook <+> fullscreenEventHook
+    , handleEventHook    = hintsEventHook <+> fullscreenEventHook <+> docksEventHook
     , logHook            = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h }
     , startupHook        = setWMName "LG3D"
   }
