@@ -32,4 +32,6 @@ fi
 
 xrdb -m ~/.xresources
 
+xloadimage -onroot -fullscreen ~/wallpaper.jpg
+
 exec xmonad
