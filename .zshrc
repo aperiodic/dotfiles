@@ -12,6 +12,11 @@ export PATH=/usr/local/pgsql/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
+hc4_bin='/opt/HipChat4/bin'
+if [[ -e $hc4_bin ]]; then
+  export PATH=$PATH:$hc4_bin
+fi
+
 if [[ $PLATFORM == 'Darwin' ]]; then
   # command-line developer tools
   export PATH=$PATH:/Developer/usr/bin
