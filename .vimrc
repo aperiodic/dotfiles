@@ -92,6 +92,8 @@ nnoremap k gk
 nnoremap H 0
 nnoremap L $
 
+nnoremap <C-b> :b<space>
+
 " vimrc editing & sourcing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
