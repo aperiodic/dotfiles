@@ -156,6 +156,11 @@ if [[ -e "$xresources" ]] && command -v xrdb >/dev/null; then
   xrdb -m "$xresources"
 fi
 
+wp=$(echo $HOME/wallpaper.*)
+if [[ -e $wp ]] && command -v feh >/dev/null; then
+  feh --bg-fill $wp
+fi
+
 ### GENERAL CLI GOODNESS #######################################################
 
 export TERM='xterm-256color'
