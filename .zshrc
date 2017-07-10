@@ -151,7 +151,10 @@ setopt hist_ignore_dups
 
 ### X11 ########################################################################
 
-xrdb -m ~/.xresources
+xresources="$HOME/.xresources"
+if [[ -e "$xresources" ]] && command -v xrdb >/dev/null; then
+  xrdb -m "$xresources"
+fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
