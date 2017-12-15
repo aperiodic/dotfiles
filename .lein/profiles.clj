@@ -1,11 +1,8 @@
 {:user {:plugins [[lein-ancient "0.6.10" :exclusions [org.apache.httpcomponents/httpclient com.fasterxml.jackson.core/jackson-core]]
                   [lein-difftest "2.0.0"]
                   [lein-midje "3.0.0"]
-                  [lein-pprint "1.1.2"]]
-        :dependencies [[clj-stacktrace "0.2.8"]]
-        :jvm-opts ["-Xmx256m"]
-        :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
-                                            'print-cause-trace)
-                           new (ns-resolve (doto 'clj-stacktrace.repl require)
-                                           'pst)]
-                       (alter-var-root orig (constantly (deref new))))]}}
+                  [lein-pprint "1.1.2"]
+                  [spyscope "0.1.5"]]
+        :dependencies [[pjstadig/humane-test-output "0.8.3"]]
+        :injections [(require 'pjstadig.humane-test-output)
+                     (pjstadig.humane-test-output/activate!)]}}

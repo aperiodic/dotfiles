@@ -196,3 +196,6 @@ elif [[ $PLATFORM == 'Darwin' ]]; then
   export LSCOLORS=exGxhxDxcxhxhxhxhxcxcx
 fi
 alias grep='grep --color=auto'
+
+# remove '=' from list of special characters that are considered part of a word
+export WORDCHARS=${WORDCHARS//[=]}
