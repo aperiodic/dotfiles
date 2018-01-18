@@ -17,21 +17,7 @@ if [[ -e $hc4_bin ]]; then
   export PATH=$PATH:$hc4_bin
 fi
 
-if [[ $PLATFORM == 'Darwin' ]]; then
-  # command-line developer tools
-  export PATH=$PATH:/Developer/usr/bin
-  # my poor-man's vpn
-  export PATH=$PATH:~/src/oss/sshuttle
-  # clean all clipboard history files (for when I have to copy/paste a password
-  # from 1Password)
-  export PATH=$PATH:/Users/dlp/src/personal/scripts/cleanclipboard
-  # truecrypt CLI
-  alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
-fi
-
-if [[ $PLATFORM == 'Darwin' ]]; then
-  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home"
-elif [[ $PLATFORM == 'Linux' && -d /usr/lib/jvm ]]; then
+if [[ $PLATFORM == 'Linux' && -d /usr/lib/jvm ]]; then
   jdk=$(ls /usr/lib/jvm/ | grep 'java-7' | head -n 1)
   if [ ! -z "$jdk" ]; then
     export JAVA_HOME="/usr/lib/jvm/$jdk"
@@ -60,16 +46,6 @@ fi
 # slashpackage-convention commands
 if [ -d /command ]; then
   export PATH=$PATH:/command
-fi
-
-# Amazon EC2 API/AMI tools
-if [ ! -z "$(find /usr/local/ -iregex 'ec2-ami-*')" ]; then
-  export EC2_AMITOOL_HOME="/usr/local/$(ls /usr/local | grep 'ec2-ami' | head -n 1)"
-  export PATH=$PATH:$EC2_AMITOOL_HOME/bin
-fi
-if [ -z "$(find /usr/local/ -iregex 'ec2-api-*')" ]; then
-  export EC2_HOME="/usr/local/$(ls /usr/local | grep 'ec2-api' | head -n 1)"
-  export PATH=$PATH:$EC2_HOME/bin
 fi
 
 # rbenv
