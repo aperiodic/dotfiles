@@ -41,6 +41,7 @@ done
 # PSAS arm development tools
 if [ -d ~/opt/psas ]; then
   export PATH=$PATH:~/opt/psas/x-tools/stm32f407/gcc-arm-none-eabi-4_7-2013q3/bin
+  alias st_ocd="sudo openocd -f ~/src/psas/stm32/openocd/olimex_stm32_e407.cfg --search ~/opt/psas/openocd/share/openocd/scripts"
 fi
 
 # slashpackage-convention commands
@@ -93,13 +94,10 @@ alias keylist='ssh-add -l'
 # xscreensaver lock alias
 if [[ $PLATFORM == 'Linux' ]]; then
   alias xlock="xscreensaver-command -lock"
+  alias pageouts="top -l 1 \
+                   | grep pageouts \
+                   | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
 fi
-
-alias pageouts="top -l 1 \
-                 | grep pageouts \
-                 | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
-
-alias st_ocd="sudo openocd -f ~/src/psas/stm32/openocd/olimex_stm32_e407.cfg --search ~/opt/psas/openocd/share/openocd/scripts"
 
 
 ### FUNCTIONS ##################################################################
