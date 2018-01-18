@@ -1,0 +1,10 @@
+[user]
+# Please adapt and uncomment the following lines:
+#name = Dan Lidral-Porter
+#email =
+
+[core]
+	excludesfile = ~/.gitignore
+
+[merge]
+	conflictstyle = diff3

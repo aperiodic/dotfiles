@@ -51,6 +51,7 @@ fi
 set -e
 
 if [ $ARG_COUNT -eq 0 ]; then
+  revert_or_rm .gitconfig
   revert_or_rm .gitignore
   revert_or_rm .inputrc
   revert_or_rm .lein
