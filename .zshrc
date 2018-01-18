@@ -132,8 +132,8 @@ if [[ -e "$xresources" ]] && command -v xrdb >/dev/null; then
   xrdb -m "$xresources"
 fi
 
-wp=$(echo $HOME/wallpaper.*)
-if [[ -e $wp ]] && command -v feh >/dev/null; then
+wp="$(find $HOME -maxdepth 1 -iname 'wallpaper.*')"
+if [ ! -z "$wp" ] && command -v feh >/dev/null; then
   feh --bg-fill $wp
 fi
 
