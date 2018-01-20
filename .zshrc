@@ -150,7 +150,7 @@ if [[ $PLATFORM == 'Linux' ]]; then
   alias fixkeyboard="setxkbmap -model pc104 -layout us -variant dvp -option ctrl:nocaps"
 fi
 
-BASE_PROMPT='%#[%n@%m:%~%F{blue}?:%?%f]'
+BASE_PROMPT='%#[%n@%m:%~%(?.%F{blue}.%F{red})?:%?%f]'
 INS_MODE_TRAILER='%F{yellow}|%f'
 DEFAULT_PROMPT="$BASE_PROMPT "
 export PROMPT=$DEFAULT_PROMPT
