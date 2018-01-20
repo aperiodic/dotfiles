@@ -139,15 +139,6 @@ fi
 
 export TERM='xterm-256color'
 
-export PROMPT_L='[%n@%m:%~%F{blue}?:%?%f]'
-export PROMPT="$PROMPT_L%# "
-zle-keymap-select () {
-  case $KEYMAP in
-    vicmd) export PROMPT="$PROMPT_L%# ";;
-    viins) export PROMPT="$PROMPT_L%F{blue}%#%f ";;
-  esac
-}
-
 export EDITOR=vim
 export VISUAL=vim
 set -o vi
@@ -158,6 +149,27 @@ if [[ $PLATFORM == 'Linux' ]]; then
   export LC_CTYPE=en_US.UTF-8
   alias fixkeyboard="setxkbmap -model pc104 -layout us -variant dvp -option ctrl:nocaps"
 fi
+
+BASE_PROMPT='%#[%n@%m:%~%F{blue}?:%?%f]'
+INS_MODE_TRAILER='%F{yellow}|%f'
+DEFAULT_PROMPT="$BASE_PROMPT "
+export PROMPT=$DEFAULT_PROMPT
+
+# Make prompt indicate current vim mode
+# known bug: when you do a backwards search but cancel out with ^c
+function zle-keymap-select zle-line-init {
+  if [[ "$KEYMAP" == viins ]] || [[ "$KEYMAP" == main ]]; then
+    PROMPT="${BASE_PROMPT}${INS_MODE_TRAILER}"
+  else
+    PROMPT=$DEFAULT_PROMPT
+  fi
+
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 
 # colors!
 if [[ $PLATFORM == 'Linux' ]]; then
