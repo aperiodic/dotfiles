@@ -103,6 +103,10 @@ if [[ $PLATFORM == 'Linux' ]]; then
                    | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
 fi
 
+if [[ $PLATFORM == 'Darwin' ]]; then
+  alias flush-dns='sudo killall -HUP mDNSResponder'
+fi
+
 
 ### FUNCTIONS ##################################################################
 
