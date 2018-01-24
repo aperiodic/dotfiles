@@ -91,7 +91,11 @@ alias keyon="ssh-add -t 14400"
 alias keyoff='ssh-add -D'
 alias keylist='ssh-add -l'
 
-# xscreensaver lock alias
+#### Platform-Specific Aliases
+
+# aliases that are only available on one platform, not aliases that are
+# available on all platforms but have different implementations
+
 if [[ $PLATFORM == 'Linux' ]]; then
   alias xlock="xscreensaver-command -lock"
   alias pageouts="top -l 1 \
