@@ -7,10 +7,7 @@ if [[ $HOST == 'fiona' ]]; then
   export PATH=/usr/local/Cellar/sqlite/3.7.10/bin:$PATH
 fi
 
-export PATH=/usr/local/sbin:~/bin:$PATH
-export PATH=/usr/local/pgsql/bin:$PATH
-export PATH=/usr/bin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=~/bin:$PATH
 
 hc4_bin='/opt/HipChat4/bin'
 if [[ -e $hc4_bin ]]; then
