@@ -187,6 +187,6 @@ if [[ $PLATFORM == 'Linux' ]]; then
 elif [[ $PLATFORM == 'Darwin' ]]; then
   # if only os x had GNU ls
   export CLICOLOR=1;
-  export LSCOLORS=exGxhxDxcxdxfxFxhxcxcx
+  export LSCOLORS=exgxhxDxcxdxfxFxhxcxcx
 fi
 alias grep='grep --color=auto'
