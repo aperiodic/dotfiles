@@ -57,6 +57,8 @@ fi
 alias la='ls -a'
 alias ll='ls -alh'
 
+alias be='bundle exec'
+
 # git aliases
 # these save me a ton of time
 alias ga='git add'
