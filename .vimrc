@@ -181,7 +181,7 @@ let g:paredit_matchlines = 150
 
 " vim-clojure-static config
 " ==========================
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^try', '^fn', '^dom', '^are', '^GET', '^POST', '^PUT', '^HEAD', '^DELETE']
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^->', '^\.', '^try', '^fn', '^dom', '^are', '^GET', '^POST', '^PUT', '^HEAD', '^DELETE', '^fdef']
 
 
 
