@@ -106,6 +106,7 @@ fi
 if [[ $PLATFORM == 'Darwin' ]]; then
   alias flush-dns='sudo killall -HUP mDNSResponder'
   alias restart-dns='sudo killall -KILL mDNSResponder'
+  alias xlock='open -a /System/Library/CoreServices/ScreenSaverEngine.app'
 fi
 
 
