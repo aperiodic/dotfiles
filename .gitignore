@@ -5,6 +5,7 @@
 /.lein/self-installs
 /.lein/plugins
 /.lein/bin
+/.lein/repl-history
 /.vim/.netrwhist
 *.psd
 *.hi
