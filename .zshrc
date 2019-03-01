@@ -48,7 +48,6 @@ fi
 
 # rbenv
 if [ -d ~/.rbenv ]; then
-  export PATH="~/.rbenv/shims:$PATH"
   eval "$(rbenv init -)"
 fi
 
