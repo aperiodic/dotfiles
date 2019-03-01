@@ -2,6 +2,7 @@ set editing-mode vi
 set keymap vi
 set completion-ignore-case on
 set completion-map-case on
+set completion-prefix-display-length 2
 
 "\C-p": history-search-backward
 "\eOA": history-search-backward
