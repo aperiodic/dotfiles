@@ -1,0 +1,5 @@
+--python-kinds=-i
+--exclude=*/site-packages/*
+--exclude=*/lib/python*
+--exclude=*/dist/*
+--exclude=*/build/*
