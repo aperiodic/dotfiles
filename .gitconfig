@@ -4,7 +4,7 @@
 #email =
 
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
