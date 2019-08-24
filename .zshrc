@@ -197,3 +197,6 @@ elif [[ $PLATFORM == 'Darwin' ]]; then
   export LSCOLORS=exgxhxDxcxdxfxFxhxcxcx
 fi
 alias grep='grep --color=auto'
+
+# Git tab completion
+autoload -Uz compinit && compinit
