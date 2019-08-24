@@ -51,6 +51,12 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+# pyenv
+if [ -d ~/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  eval "$(pyenv init -)"
+fi
+
 ### ALIASES ####################################################################
 
 alias la='ls -a'
