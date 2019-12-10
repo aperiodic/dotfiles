@@ -64,6 +64,8 @@ alias ll='ls -alh'
 
 alias be='bundle exec'
 
+alias collapse-spaces='sed -e "s/[[:space:]]\{1,\}/ /g"'
+
 # git aliases
 # these save me a ton of time
 alias ga='git add'
