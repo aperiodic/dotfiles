@@ -192,11 +192,30 @@ let g:syntastic_check_on_wq = 1
 
 " airline
 " =======
-let g:airline_section_b = "\ue0a0 %{gitbranch#name()}"
 let g:airline_solarized_bg = 'dark'
 let g:airline_left_sep="\ue0b0"
 let g:airline_right_sep="\ue0b2"
 
+let g:airline_section_b = "\ue0a0 %{gitbranch#name()}"
+
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'V',
+    \ }
 
 " Filetype-Specific Settings
 " ==========================
