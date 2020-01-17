@@ -192,7 +192,10 @@ let g:syntastic_check_on_wq = 1
 
 " airline
 " =======
-let g:airline_section_b = "%{gitbranch#name()}"
+let g:airline_section_b = "\ue0a0 %{gitbranch#name()}"
+let g:airline_solarized_bg = 'dark'
+let g:airline_left_sep="\ue0b0"
+let g:airline_right_sep="\ue0b2"
 
 
 " Filetype-Specific Settings
