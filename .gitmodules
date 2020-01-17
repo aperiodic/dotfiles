@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/conceal"]
 	path = .vim/bundle/conceal
 	url = https://github.com/holguinj/vim-clojure-conceal.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
