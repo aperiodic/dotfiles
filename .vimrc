@@ -193,10 +193,10 @@ let g:syntastic_check_on_wq = 1
 " airline
 " =======
 let g:airline_solarized_bg = 'dark'
-let g:airline_left_sep="\ue0b0"
-let g:airline_right_sep="\ue0b2"
+let g:airline_powerline_fonts = 1
 
 let g:airline_section_b = "\ue0a0 %{gitbranch#name()}"
+let g:airline_section_y = ""
 
 let g:airline_mode_map = {
     \ '__'     : '-',
@@ -216,6 +216,7 @@ let g:airline_mode_map = {
     \ 'v'      : 'V',
     \ 'V'      : 'V',
     \ }
+
 
 " Filetype-Specific Settings
 " ==========================
