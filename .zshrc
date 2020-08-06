@@ -66,6 +66,8 @@ alias be='bundle exec'
 
 alias collapse-spaces='sed -e "s/[[:space:]]\{1,\}/ /g"'
 
+alias tree-py="tree -I '__pycache__|*.egg-info|*.pyc' --prune"
+
 # git aliases
 # these save me a ton of time
 alias ga='git add'
