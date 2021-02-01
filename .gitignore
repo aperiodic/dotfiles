@@ -21,3 +21,4 @@
 /scratch
 /.jedi
 .mypy_cache
+.python-version
