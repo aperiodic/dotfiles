@@ -175,6 +175,10 @@ nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_prefer_python3 = 1
 
+" jedi-vim config
+" ===============
+let g:jedi#completions_command = "<C-N>"
+
 " paredit config
 " ==============
 let g:paredit_leader = ','
