@@ -2,6 +2,7 @@
 *.sw*
 .*.sw*
 *~
+.*~
 .DS_Store
 /.lein/self-installs
 /.lein/plugins
