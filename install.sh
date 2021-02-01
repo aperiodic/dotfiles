@@ -19,8 +19,7 @@ function safe_install {
 
 set -e
 
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 if [ $# -eq 0 ]; then
   safe_install .ctags
