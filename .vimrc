@@ -245,6 +245,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " force .xml.template files to be treated as .xml files
 au BufRead,BufNewFile *.xml.template set filetype=xml
 
+" set groovy filetype for Jenkinsfiles
+au BufNewFile,BufRead Jenkinsfile set ft=groovy
+
 " enable arduino syntax highlighting for *.ino files
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 
