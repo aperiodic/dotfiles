@@ -177,9 +177,9 @@ let g:gundo_prefer_python3 = 1
 
 " jedi-vim config
 " ===============
-let g:jedi#completions_command = "<C-N>"
 let g:jedi#goto_stubs_command = ""
 let g:jedi#environment_path = "env"
+let g:jedi#usages_command = ""
 
 " paredit config
 " ==============
