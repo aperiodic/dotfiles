@@ -250,11 +250,20 @@ au BufRead,BufNewFile *.xml.template set filetype=xml
 " set groovy filetype for Jenkinsfiles
 au BufNewFile,BufRead Jenkinsfile set ft=groovy
 
+" set YAML filetype for Jinja-templated YAML
+au BufNewFile,BufRead *.yaml.j2 set ft=yaml
+
+" set YAML filetype for Salt state files
+au BufNewFile,BufRead *.sls set ft=yaml
+
 " enable arduino syntax highlighting for *.ino files
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 
 " enable clojure stuff for hoplon files
 autocmd! BufNewFile,BufRead *.hl setlocal ft=clojure
+
+" set Dockerfile ft for any filename ending in 'Dockerfile'
+autocmd! BufNewFile,BufRead *Dockerfile setlocal ft=Dockerfile
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
