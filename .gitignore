@@ -19,3 +19,5 @@
 **/scratch.clj
 /notes
 /scratch
+/.jedi
+.mypy_cache
