@@ -156,8 +156,6 @@ fi
 
 ### GENERAL CLI GOODNESS #######################################################
 
-export TERM='xterm-256color'
-
 export EDITOR=vim
 export VISUAL=vim
 set -o vi
