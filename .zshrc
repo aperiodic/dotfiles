@@ -177,6 +177,12 @@ function ec2-id-to-ip () {
   fi
 }
 
+function cleanup-branches () {
+  for branch in $(git branch | grep -v '^\*' | sed -e 's/^[[:space:]]\{1,\}//'); do
+    git branch -d $branch
+  done
+}
+
 ### CREDENTIALS ################################################################
 
 if [[ $HOST == 'kasei' ]]; then
