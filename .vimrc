@@ -64,7 +64,6 @@ set formatoptions=qrn1
 
 set iskeyword=@,48-57,_,-,192-255
 
-set background=dark
 colorscheme solarized
 
 set tags=./tags;
