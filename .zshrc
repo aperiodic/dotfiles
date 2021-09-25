@@ -132,6 +132,51 @@ function dict () {
   fi
 }
 
+_EXTRACT_EC2_IP_WITH_SED_SUB='s/^[[:space:]]*"\(i-[0-9a-zA-Z]*\)"$/\1/'
+
+function ec2-terminate-by-ip () {
+  if [ -z "$1" ]; then
+    echo "USAGE: $0 ip_address" 1>&2;
+  else
+    instance_id="$(aws ec2 describe-instances --filters Name=private-ip-address,Values=$1 --query 'Reservations[0].Instances[0].[InstanceId]' | grep "i-" | sed -e ${_EXTRACT_EC2_IP_WITH_SED_SUB})"
+    aws ec2 terminate-instances --instance-ids ${instance_id}
+  fi
+}
+
+function ec2-stop-by-ip () {
+  if [ -z "$1" ]; then
+    echo "USAGE: $0 ip_address" 1>&2;
+  else
+    instance_id="$(aws ec2 describe-instances --filters Name=private-ip-address,Values=$1 --query 'Reservations[0].Instances[0].[InstanceId]' | grep "i-" | sed -e ${_EXTRACT_EC2_IP_WITH_SED_SUB})"
+    aws ec2 stop-instances --instance-ids ${instance_id}
+  fi
+}
+
+function ec2-start-by-ip () {
+  if [ -z "$1" ]; then
+    echo "USAGE: $0 ip_address" 1>&2;
+  else
+    instance_id="$(aws ec2 describe-instances --filters Name=private-ip-address,Values=$1 --query 'Reservations[0].Instances[0].[InstanceId]' | grep "i-" | sed -e ${_EXTRACT_EC2_IP_WITH_SED_SUB})"
+    aws ec2 start-instances --instance-ids ${instance_id}
+  fi
+}
+
+function ec2-list-by-key () {
+  if [ -z "$1" ]; then
+    echo "USAGE: $0 key_name" 1>&2;
+  else
+    aws ec2 describe-instances --filters "Name=key-name,Values=$1" --query 'Reservations[*].Instances[*].[InstanceId,State]';
+  fi
+}
+
+function ec2-id-to-ip () {
+  if [ -z "$1" ]; then
+    echo "USAGE: $0 instance-id" 1>&2;
+  else
+    aws ec2 describe-instances --instance-ids $1 --query 'Reservations[0].Instances[0].PrivateIpAddress' | sed -e 's/"//g';
+  fi
+}
+
 ### CREDENTIALS ################################################################
 
 if [[ $HOST == 'kasei' ]]; then
