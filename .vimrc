@@ -236,7 +236,7 @@ au FileType markdown set tw=99999
 
 au FileType gitcommit set tw=72
 au FileType cpp set tw=100 sw=4 ts=4 sts=4
-au FileType python set tw=80 sw=2 ts=2 sts=2
+au FileType python set tw=88 sw=4 ts=4 sts=4
 
 " Random File Stuff
 " ================
