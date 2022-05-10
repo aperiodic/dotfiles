@@ -1,19 +1,31 @@
 #!/bin/bash
 
 function safe_install {
-  if [ -f ~/$1 ] || [ -L ~/$1 ] || [ -d ~/$1 ]; then
-    if [ -f ~/$1.bkp ] || [ -L ~/$1.bkp ] || [ -d ~/$1.bkp ]; then
-     echo "~/$1 and ~/$1.bkp both exist, doing nothing" 1>&2
-     echo "You can restore from the bkp files by running restore.sh" 1>&2
+  src=$1
+  if [ -n "$2" ]; then
+    dest=$2
+  else
+    dest=$src
+  fi
+
+
+  if [ -f ~/$dest ] || [ -L ~/$dest ] || [ -d ~/$dest ]; then
+    if [ -f ~/$dest.bkp ] || [ -L ~/$dest.bkp ] || [ -d ~/$dest.bkp ]; then
+     echo "~/$dest and ~/$dest.bkp both exist, doing nothing" 1>&2
+     echo "You can restore from the bkp files by running uninstall.sh" 1>&2
      return
    else
-     echo "~/$1 already exists, moving to ~/$1.bkp" 1>&2
-     mv ~/$1 ~/$1.bkp
+     echo "~/$dest already exists, moving to ~/$dest.bkp" 1>&2
+     mv ~/$dest ~/$dest.bkp
    fi
  fi
- ln -s $(pwd)/$1 ~/$1
+ ln -s $(pwd)/$src ~/$dest
  if [ $? -eq 0 ]; then
-   echo "Installed $1"
+   if [[ "$src" == "$dest" ]]; then
+     echo "Installed $src"
+   else
+     echo "Installed $src as $dest"
+   fi
  fi
 }
 
