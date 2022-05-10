@@ -253,3 +253,7 @@ alias grep='grep --color=auto'
 
 # Git tab completion
 autoload -Uz compinit && compinit
+
+### ZSH PLUGINS ################################################################
+
+source ~/.zsh-plugins/syntax-highlighting/zsh-syntax-highlighting.zsh

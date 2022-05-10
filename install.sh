@@ -47,6 +47,7 @@ if [ $# -eq 0 ]; then
   safe_install .xmodmap
   safe_install .xresources
   safe_install .zshrc
+  safe_install zsh-plugins .zsh-plugins
 else
   for f in $@; do
     safe_install $f

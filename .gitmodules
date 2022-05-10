@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/jedi-vim"]
 	path = .vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "zsh-plugins/syntax-highlighting"]
+	path = zsh-plugins/syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
