@@ -165,8 +165,10 @@ let g:clam_winpos = 'botright'
 " ============
 " i don't know what exactly wildignore does, but ctrlp sets it, and i don't
 " care about these files anyways, so seems innocuous enough (famous last words)
-set wildignore+=*.swp,*.swo,*.jar,*.class,.DS_Store
-let g:ctrlp_custom_ignore = '\v[\/](\.git|\.pytest_cache|env|py2-env)$'
+set wildignore+=.*.swp,.*.swo,*.jar,*.class,.DS_Store,.*~
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](\.git|\.pytest_cache|\.mypy_cache|env|py2-env|htmlcov|artifacts|logs)$',
+  \ }
 " this refreshes the list of files in ctrlp (it's poorly named)
 nnoremap <silent> <C-s> :ClearAllCtrlPCaches<cr>
 
