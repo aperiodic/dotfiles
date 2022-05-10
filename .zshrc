@@ -213,6 +213,10 @@ set -o vi
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -s "^t" "\e"
 
+if [[ $TERM == "screen" ]]; then
+  export TERM="xterm-256color"
+fi
+
 if [[ $PLATFORM == 'Linux' ]]; then
   export LC_CTYPE=en_US.UTF-8
   alias fixkeyboard="setxkbmap -model pc104 -layout us -variant dvp -option ctrl:nocaps"
