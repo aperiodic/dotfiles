@@ -37,6 +37,7 @@ if [ $# -eq 0 ]; then
   safe_install .ctags
   safe_install .gitconfig
   safe_install .gitignore
+  safe_install .i3
   safe_install .inputrc
   safe_install .lein
   safe_install .tmux.conf
