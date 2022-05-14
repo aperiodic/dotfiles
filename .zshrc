@@ -107,6 +107,7 @@ alias keylist='ssh-add -l'
 
 if [[ $PLATFORM == 'Linux' ]]; then
   alias xlock="xscreensaver-command -lock"
+  alias startx="sx sh .xinitrc"
   alias pageouts="top -l 1 \
                    | grep pageouts \
                    | sed 's/^.*pageins, \\([0-9]*\\)([0-9]*) pageouts.*$/\1/'"
