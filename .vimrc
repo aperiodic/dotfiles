@@ -127,6 +127,8 @@ inoremap <leader><c-u> <esc>viwUea
 " count matches of last search pattern
 nnoremap <leader>* :%s///gn<CR>
 
+nnoremap <leader>ws :execute ':silent w !sudo tee % > /dev/null' | edit!
+
 
 " Abbrevs
 " =======
