@@ -1,7 +1,6 @@
 [user]
-# Please adapt and uncomment the following lines:
-#name = Dan Lidral-Porter
-#email =
+	email = dlidralporter@blackberry.com
+	name = Dan Lidral-Porter
 
 [core]
   excludesfile = ~/.gitignore
