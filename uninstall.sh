@@ -63,6 +63,7 @@ if [ $ARG_COUNT -eq 0 ]; then
   revert_or_rm .xmodmap
   revert_or_rm .xresources
   revert_or_rm .zshrc
+  revert_or_rm .zsh-plugins
 else
   for f in $@; do
     revert_or_rm $f
