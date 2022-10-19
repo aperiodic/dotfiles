@@ -277,6 +277,10 @@ fi
 # Git tab completion
 autoload -Uz compinit && compinit
 
+# increase file descriptor limit; with current MacOS default of 256, some unit
+# tests fail
+ulimit -n 1024
+
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 ### ZSH PLUGINS ################################################################
