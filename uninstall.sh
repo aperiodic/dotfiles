@@ -1,25 +1,33 @@
 #!/bin/bash
 
 function revert_or_rm {
-  if [[ -e ~/$1.bkp ]]; then
-    mv ~/$1.bkp ~/$1
-    echo "Reverted $1"
+  target=$1
+  if [[ $target == 'ipython_config.py' ]]; then
+    target=$IPYTHON_CFG_DIR/ipython_config.py
+  fi
+
+  if [[ -e ~/$target.bkp ]]; then
+    mv ~/$target.bkp ~/$target
+    echo "Reverted $target"
   else
     if [ $NUKE ]; then
-      rm ~/$1
-      echo "Deleted ~/$1"
+      rm ~/$target
+      echo "Deleted ~/$target"
     else
-      ls -lh ~/$1
-      printf "Delete '~/$1'? [y/n]: "
+      ls -lh ~/$target
+      printf "Delete '~/$target'? [y/n]: "
       read _del_confirm
       if [[ $_del_confirm -eq "y" ]]; then
-        rm ~/$1
+        rm ~/$target
       fi
       # this might not be necessary; i don't really know bash variable scoping
       unset _del_confirm
     fi
   fi
 }
+
+set -e
+source "definitions.sh"
 
 ARG_COUNT=$#
 
@@ -48,12 +56,12 @@ if [[ ! $confirm -eq "y" && ! $NUKE ]]; then
   exit 1
 fi
 
-set -e
 
 if [ $ARG_COUNT -eq 0 ]; then
   revert_or_rm .gitconfig
   revert_or_rm .gitignore
   revert_or_rm .inputrc
+  revert_or_rm ipython_config.py
   revert_or_rm .lein
   revert_or_rm .tmux.conf
   revert_or_rm .vim

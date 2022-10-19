@@ -8,6 +8,10 @@ function safe_install {
     dest=$src
   fi
 
+  if [[ $src == 'ipython_config.py' ]]; then
+    dest=$IPYTHON_CFG_DIR/ipython_config.py
+    mkdir -p ~/$IPYTHON_CFG_DIR
+  fi
 
   if [ -f ~/$dest ] || [ -L ~/$dest ] || [ -d ~/$dest ]; then
     if [ -f ~/$dest.bkp ] || [ -L ~/$dest.bkp ] || [ -d ~/$dest.bkp ]; then
@@ -19,7 +23,7 @@ function safe_install {
      mv ~/$dest ~/$dest.bkp
    fi
  fi
- ln -s $(pwd)/$src ~/$dest
+ ln -s "$(pwd)/$src" ~/$dest
  if [ $? -eq 0 ]; then
    if [[ "$src" == "$dest" ]]; then
      echo "Installed $src"
@@ -30,6 +34,7 @@ function safe_install {
 }
 
 set -e
+source "definitions.sh"
 
 git submodule update --init --recursive
 
@@ -39,6 +44,7 @@ if [ $# -eq 0 ]; then
   safe_install .gitignore
   safe_install .i3
   safe_install .inputrc
+  safe_install ipython_config.py
   safe_install .lein
   safe_install .tmux.conf
   safe_install .vim
