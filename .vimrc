@@ -115,17 +115,11 @@ cnoreabbrev bx up<bar>bd
 nnoremap _ ddkP
 nnoremap - ddp
 
-" clear line
-nnoremap <leader>d ddO<esc>
-
 " replace newlines with spaces until next blank line
 nnoremap <leader>f v/\v^$<cr>gk$h:s/\n/ /<cr>jO<esc>k:noh<cr>
 
 " uppercase current word
 inoremap <leader><c-u> <esc>viwUea
-
-" count matches of last search pattern
-nnoremap <leader>* :%s///gn<CR>
 
 nnoremap <leader>ws :execute ':silent w !sudo tee % > /dev/null' | edit!
 
