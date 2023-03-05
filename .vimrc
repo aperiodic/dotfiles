@@ -27,7 +27,7 @@ vnoremap <space> <Esc>
 let mapleader = ","
 let maplocalleader = ";"
 
-set timeoutlen=500
+set timeoutlen=750
 
 set nocompatible
 set modelines=0
@@ -121,7 +121,7 @@ nnoremap <leader>f v/\v^$<cr>gk$h:s/\n/ /<cr>jO<esc>k:noh<cr>
 " uppercase current word
 inoremap <leader><c-u> <esc>viwUea
 
-nnoremap <leader>ws :execute ':silent w !sudo tee % > /dev/null' | edit!
+nnoremap <leader>ws :execute ':silent w !sudo tee % > /dev/null'
 
 
 " Abbrevs
@@ -182,7 +182,7 @@ set completeopt=menuone,preview
 
 " paredit config
 " ==============
-let g:paredit_leader = ','
+let g:paredit_leader = ';'
 let g:paredit_matchlines = 150
 
 " vim-clojure-static config
