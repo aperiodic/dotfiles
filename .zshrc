@@ -97,6 +97,8 @@ alias grs='git remote show'
 alias grm='git rm'
 alias gs='git status -s'
 
+alias agpy="ag -G '.*\\.py'"
+
 # ssh-agent aliases
 if [[ $PLATFORM == 'Darwin' ]]; then
   alias ssh-agent="exec ssh-agent /bin/zsh"
