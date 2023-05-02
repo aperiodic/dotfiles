@@ -256,6 +256,11 @@ elif [[ $PLATFORM == 'Darwin' ]]; then
 fi
 alias grep='grep --color=auto'
 
+zfuncs_dir="$HOME/.zfunc"
+if [[ -d "$zfuncs_dir" ]]; then
+  fpath+="$zfuncs_dir"
+fi
+
 # Git tab completion
 autoload -Uz compinit && compinit
 
