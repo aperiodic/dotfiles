@@ -123,6 +123,12 @@ if [[ $PLATFORM == 'Darwin' ]]; then
   alias flush-dns='sudo killall -HUP mDNSResponder'
   alias restart-dns='sudo killall -KILL mDNSResponder'
   alias xlock='open -a /System/Library/CoreServices/ScreenSaverEngine.app'
+
+  if [[ "$(uname -m)" == 'arm64' ]]; then
+    # x86-emulated homebrew, rather than native apple silicon homebrew
+    alias x86-brew='arch --x86_64 /usr/local/Homebrew/bin/brew'
+    alias x86='PATH=/usr/local/bin:$PATH'
+  fi
 fi
 
 
