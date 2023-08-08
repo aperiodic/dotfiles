@@ -57,6 +57,12 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
+homebrew_pg15_bin='/usr/local/opt/postgresql@15/bin'
+# postgres 15
+if [ -d "$homebrew_pg15_bin" ]; then
+  export PATH="$PATH:$homebrew_pg15_bin"
+fi
+
 ### ALIASES ####################################################################
 
 alias la='ls -a'
