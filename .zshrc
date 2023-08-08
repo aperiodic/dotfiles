@@ -276,6 +276,8 @@ fi
 # Git tab completion
 autoload -Uz compinit && compinit
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 ### ZSH PLUGINS ################################################################
 
 source ~/.zsh-plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
